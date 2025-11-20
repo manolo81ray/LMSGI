@@ -1,0 +1,232 @@
+*{ /* selector universal, coge todos los elementos del HTML*/
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap; /* una sola columna */
+    height: 300vh; /* altura absoluta */
+}
+
+header {
+    height: 8vh; /* altura absoluta */
+    background-color: black;
+    display: flex;
+    flex-direction: row; /*queremos los hijos en linea*/
+    flex-wrap: nowrap;
+    justify-content: space-between; /*separa los hijos*/
+    align-items: center;
+}
+
+header div#menu {
+    color: white; /* color del menu*/
+    border: 0px solid red;
+    /* flex-basis: 5%; este no le podriamos poner para editar el tamaño del icono debido a que este solo se modifica o hacia el ancho (row) o altura (column) */
+    font-size: 30px; /* este adjusta el tamaño de forma proporcional (misma altura y ancho), este debe estar definido por la altura del padre con un display flex */
+    margin-left: 10px;
+}
+
+header div#menu:hover{
+    color: rgb(192, 222, 58);
+}
+
+header figure {
+    border: 0px solid red;
+    flex-basis: 15%; /* en este caso, la anchura del Header*/
+    height: 100%; /* la altura que tiene el header pero esta a de ser en % */
+    display: flex;
+    flex: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+header figure img{
+    height: 100%; /* altura de la imagen */  
+} 
+
+header form {
+    border: 0px solid red;
+    flex-basis: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* eje principal en columna */
+    justify-content: center; /* alineaccion eje principal (vertical)*/
+    align-items: center; /* alineaccion eje secundario (horizontal)*/
+}
+
+header form input{
+    flex-basis: 50%; /* height (altura) */
+    width: 80%;
+    border-radius: 20px;
+    font-size: 80%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(110, 126, 33);
+    background-color: rgb(249, 255, 132);
+}
+
+header nav {
+    border: 0px solid red;
+    flex-basis: 40%; /* permite ajustar el ancho */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around; /* los separa entre el espacio que tiene el padre */
+}
+
+header nav a{
+    color: white;
+    text-decoration: none; /* quita el subrayado de por defecto del enlace */
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header nav a:hover{ /* contenedor de animaccion de color */
+    color: rgb(192, 222, 58);
+}
+
+header div#usuario {
+    border: 0px solid red;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px; /* permite la separación entre los logos */
+    color: rgb(192, 222, 58);
+    font-size: 30px; /* tamaño logo*/
+}
+
+main {
+    flex-basis: 68%;
+    background-color: red;
+}
+
+footer {
+    flex-basis: 30%;
+    border: 3px solid yellow;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: nowrap;  mete todos los hijos en una linea */
+    flex-wrap: wrap;  /* mete los hijos en varias filas de forma personalizada */
+    /* align-content: flex-start; hace que no se distribuya el espacio vertical entre filas, permite que editemos nosotros ese espacio */
+
+}
+
+footer nav#sociales{
+    margin-top: 5px;
+    padding-left: 10px;
+    /* margin-left: 0px; */
+    border: 1px solid red;
+    flex-basis: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-around;  */
+    gap: 10px; 
+    height: 260px;
+}
+
+footer nav#sociales a{
+    /* border: 0px solid black; */
+    border-radius: 40px;
+    background-color: lightgreen;
+    padding: 5px;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    transition: transform 0.2s ease-in-out; /* hace que el efecto del moviemiento que hemos creado sea mas rapido o mas lenta */
+}  
+
+footer nav#sociales a i{
+    color: white;
+    font-size: 20px;
+}
+
+footer nav#sociales a:hover{
+    transform: translate(0px, -10px); /* crea una animaccion donde desplaza el logo hacia arriba donde establecemos que se translade a otra posicion (X, Y)*/
+    /* transform: rotate(360deg);  permite girar el logo 360º */
+} 
+
+footer div#subscribete{
+    margin-top: 5px;
+    border: 10px solid red;
+    color: white;
+    flex-basis: 85%;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    align-items: center;
+    justify-content: center;
+    padding: 5px; 
+    height: 260px;
+}
+
+footer div#subscribete input {
+    width: 30%;
+    font-size: 20px;
+}
+
+footer article {
+    border: 0px solid red;
+    color: white;
+    flex-basis: 33.33%;
+    /* align-self: flex-start; hace que no estire la fila y se iguale a otras */
+    /* gap: 60px; */
+    /* height: 600px;   */
+    padding-top: 130px;
+}
+
+footer article h3{
+    padding-bottom: 20px;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 25px;
+    margin-left: 20px;
+} 
+
+footer article nav{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-left: 20px;
+    /* display: inline-block;
+    height: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    border: 0px solid red;
+    flex-basis: 100%;
+    height: 390px;
+}
+
+footer article nav a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    /* justify-content: center; */
+    align-items: center;
+    text-decoration: none;
+    
+}
+
+footer article nav a:hover{
+    color: rgb(192, 222, 58);
+}
+
+footer article nav a i{
+    margin-right: 10px;
+}
