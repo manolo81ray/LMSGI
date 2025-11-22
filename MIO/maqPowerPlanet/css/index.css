@@ -144,6 +144,12 @@ main section article:hover{
     transform: translateY(-10px);
 }
 
+main section article .tarjeta{
+    text-decoration: none;
+    color: inherit;
+    display: block; /* esto nos permite tener el enlace dentro de todo el bloque es decir del article que hemos creado */
+}
+
 main section article p{
     color: red
 }
