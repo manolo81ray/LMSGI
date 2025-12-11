@@ -123,23 +123,52 @@ main section article figure img{
     flex-basis: 100%;
     
 }
-main section article p{
+main section article .nombre{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+main section article .caracteristicas{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: 0px solid blue;
+}
+main section article .caracteristicas .cpu{
+    flex-basis: 100%; /* width */
+    order: 3;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+main section article .caracteristicas .ram{
+    flex-basis: 50%; /* width */
+    order: 2;
+    text-align: right;
+    color: green;
+    font-weight: bold;
+}
+main section article .caracteristicas .disco{
+    flex-basis: 50%; /* width */
+    order:1;
+    color: red;
+    font-weight: bold;
+}
+ 
 main section article .valoraciones{
     border: 1px solid red;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 }
-main section article .valoraciones .star{
-    
+main section article .valoraciones .fa-solid{
+    color:yellow
 }
 main section article .valoraciones .star i{
-    color: yellow;
-    font-size: 10px;
+    /* color: yellow;
+    font-size: 10px; */
 }
 main section article .valoraciones .nvaloraciones{
     font-size: 10px;

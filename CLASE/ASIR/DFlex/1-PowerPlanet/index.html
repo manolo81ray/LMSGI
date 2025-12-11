@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerPlanet</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
         </figure>
         <form>
             <input type="search" placeholder="Buscar...">
-        </form>
+        </form> 
         <nav>
             <a href="#">Ofertas Limitadas</a>
             <a href="#">Contactanos</a>
@@ -118,6 +118,7 @@
     //Manipular el HMTL(usuario) <--> DOM (navegador) 
     //fectch es un funcion JS para leer un archivo JSON o
     //hacer una peticion http a una API
+//    fetch('https://www.powerplanet.com/moviles?samsung') //idem peticion a la api (BD)
     fetch('data/productos.json') //idem peticion a la api (BD)
         .then(response => response.json())
         .then(productos => {
@@ -140,16 +141,24 @@
                 `
                     <p class="badge">Envio gratis</p>
                     <figure>
-                        <img src="img/productos/movil.png" alt="Producto 1" />
+                        <img src="${producto.imagen}" alt="Producto 1" />
                     </figure>
                     <p class="nombre">${producto.nombre}</p>
                     <p class="features">
                         <span>${producto.caracteristicas.cpu}</span>
-                        <span>${producto.caracteristicas.ram}</span> 
-                        <span>${producto.caracteristicas.disco}</span> 
+                        <span>RAM: ${producto.caracteristicas.ram}</span> 
+                        <span>HDD: ${producto.caracteristicas.disco}</span> 
                     </p>
                 `;
-                contenedor.appendChild(tarjeta)
+
+               
+                contenedor.appendChild(tarjeta);
+                 //******* añadimos un enlace a cada producto a su detalle ********
+                tarjeta.addEventListener('click', () => {
+                    //creamos el parametros codigo = id del producto
+                    window.location.href = `detalle.html?codigo=${producto.id}`;
+                });
+
             })
         })
 </script>

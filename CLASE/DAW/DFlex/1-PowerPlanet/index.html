@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerPlanet</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -36,7 +36,9 @@
                     <img width= "100px" src="img/productos/ipad.jpg" />
                 </figure>
                 <p class="nombre">Apple Ipad Pro</p>
-                <p class="caracteristicas">128GB WiFi iPadOS 18 Plata</p>
+                <p class="caracteristicas">
+
+                    128GB WiFi iPadOS 18 Plata</p>
                 <div class="valoraciones">
                     <span class="star">
                         <i class="fa-solid fa-star"></i>
@@ -186,6 +188,21 @@
             productos.forEach( producto => {
                 // en producto tendre cada producto del array
                 const tarjeta = document.createElement('article');
+                // Generar estrellas según la valoración (0–5)
+               
+    //******* generación de estrellas de forma dinamica ********
+                //codigo JS para generar dinamicax el numero de estrellas
+                //en funcion del campo valoracion del producto
+                const maxEstrellas = 5; //crear una constante (maxEstrellas no cambia)
+                let estrellasHTML = ''; //variable que contiene el codigo html de las estrellas
+
+                for (let i=1; i<=maxEstrellas; i++){
+                    if (i <= producto.valoracion){
+                        estrellasHTML = estrellasHTML + `<i class="fa-solid fa-star"></i>`;
+                    } else
+                        estrellasHTML = estrellasHTML + `<i class="fa-regular fa-star"></i>`;
+                }
+                
                 tarjeta.innerHTML=
                 `
                     <p class="envio">Envio Gratis</p>
@@ -193,8 +210,26 @@
                         <img width= "100px" src="${producto.imagen}" />
                     </figure>
                     <p class="nombre">${producto.nombre}</p>
+                    <p class="caracteristicas">
+                        <span class="cpu">${producto.caracteristicas.cpu}</span>
+                        <span class="ram"> RAM: ${producto.caracteristicas.ram}</span>
+                        <span class="disco"> HDD: ${producto.caracteristicas.disco}</span
+                    </p>
+                     <div class="valoraciones">
+                        <span class="star">
+                            ${estrellasHTML}
+                        </span>
+                        <span class="nvaloraciones">${producto.valoracion}</span>
+                        <span class="comentarios">(${producto.opiniones} opiniones)</span>
+                    </div>
                 `;
-                contSeccion.appendChild(tarjeta)
+                contSeccion.appendChild(tarjeta);
+
+                 //******* añadimos un enlace a cada producto a su detalle ********
+                tarjeta.addEventListener('click', () => {
+                    window.location.href = `detalle.html?id=${producto.id}`;
+                });
+
             })
         })
 </script>

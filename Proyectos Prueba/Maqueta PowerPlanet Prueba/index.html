@@ -152,3 +152,43 @@
     </footer>
 </body>
 </html>
+
+<script>
+    // esto lo ponemos en la tarjeta del index.html; tarjeta.addEventListener('click', ())
+    // 1. Obtener los parametros de la URL, para posteriormente escoger el parametro del ID en especifico.
+    const urlParamans = new URLSearchParams(window.location.search);
+    // 2. Obtener el parametro "id"
+    const idProd = parseInt(urlParamans.get('id'))
+    //comprkobamos que el id llega al detalle.html a traves de la URL (modo consola)
+    console.log ("--->", idProd)
+    //leemos el array json de productos y devolvemos el producto cuya id = idProd
+    const producto = await fetch('./data/productos.json')
+        .then(response => response.json())
+        .then(productos => {
+            // buscar producto en array productos
+            //console.log("-1->",producto)
+            //console.log("-2->", producto.nombre, producto.precio)
+            // Actualiza nombre
+            producto = productos.find(p => p.id === idProd);
+            return producto;
+        }); //cierro el fetch
+            
+    console.log ("-->", producto)
+    document.getElementById('product_nombre').textContent = producto.nombre;
+    document.getElementById('product_nvaloraciones').textContent=producto.valoracion;
+    document.getElementById('product_comentarios').textContent=`( ${producto.opiniones} opiniones )`;
+    document.getElementById('product_descuento').textContent=`- ${producto.descuento} %`;
+    document.getElementById('product_foto').setAttribute("src", producto.imagen)
+        
+            //.then(response => response.json())
+            //        .then(producto => {
+                        //console.log("--1--",producto)
+                        //console.log("--2--",producto.nombre, esto lo ponemos para ver si me ha cogido correctamente el json)
+            //            document.getElementById('product_nombre').textContent = producto.nombre;
+            //           document.getElementById('product_nvaloraciones').textContent = producto.valoracion;
+            //           document.getElementById('product_comentarios').textContent=`( ${producto.opiniones} opiniones )`;
+            //          document.getElementById('product_descuento').textContent=`( ${producto.descuento} % )`;
+            //          document.getElementById('product_foto').setAttribute("src", producto.imagen);
+            //            // document.getElementById('product_nombre').textContent = producto.nombre;
+            //      })
+</script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerPlanet</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -154,23 +154,63 @@
     </footer>
 </body>
 </html>
-<script>
+
+<script> //Manipular el HTML (usuario)<--> DOM (navegador) 
+    // fectch es una funcion JS para leer un archivo JSON 
+    // o hacer una peticion http a una Api
     fetch('data/productos.json')
-      .then(response => response.json())
-      .then(productos => {
-        const contenedor = document.getElementById('catalogo');
-        productos.forEach(p => {
-          const card = document.createElement('article');
-          card.className = 'producto';
-          card.innerHTML = `
-            <p class="badge">Envio gratis</p>
-            <figure>
-                <img src="${p.imagen}" alt="${p.nombre}">
-            </figure>
-            <p class="nombre">${p.nombre}</p>
-          `;
-          contenedor.appendChild(card);
-        });
-      })
-      .catch(error => console.error('Error al cargar productos:', error));
-  </script>
+        .then(response => response.json()) //idem peticion a la api (BD)
+        .then(productos => {
+            //codigo js altera el contenido del Html
+            const contenedor = document.getElementById('catalogo'); // este se va al contenedor cuyo id del section sea llamado "article"
+            // crear un objeto (nodo en html) </article>
+            /* 
+                productos tiene todo el array de objetos  json
+            */
+            // iterar RECORRER todos los productos del array
+            // se ejecutara tantas veces como productos tenga el json
+            // JS (java scrpt) es el antiguo --> JS Moderno (EmacsScript 6)  
+            productos.forEach (producto => {
+                // crear un objeto (nodo)
+                const tarjeta = document.createElement('article'); // este crea un nodo en html, en este caso un article en HTML  --> <article></article>
+                // el objeto document (JS) y sirve para que JS acceda L/W al DOM del HTML
+                //contenedor.innerHTML='Catalogo de Productos';
+                //con el innerHTML escribo el contenido del nodo <article> (creado anteriormente)
+                tarjeta.innerHTML =
+                `
+                    <a href="detalle.html?id=${producto.id}" class="tarjeta">
+                    < a href="" class="tarjeta
+                    <p class="badge">Envio gratis</p>
+                    <figure>
+                       <img src="${producto.imagen}" alt="Producto 1" />
+                    </figure>
+                    <p class="nombre">${producto.nombre}</p>
+                    <p class="features">
+                        <span>${producto.caracteristicas.cpu}</span>
+                        <span>${producto.caracteristicas.ram}</span>
+                        <span>${producto.caracteristicas.disco}</span>
+                    </p>
+                    <p class="valoraciones">
+                        <span class="star">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            </span>
+                            <span class="valoracion">${producto.valoracion}</span>
+                            <span class="opiniones">(${producto.opiniones})</span>
+                    </p>
+                    <div>
+                        <span class="dto">-${producto.descuento}%</span>
+                        <span class="precios">
+                            <span class="pvr">${producto.precioOriginal}€</span>
+                            <span class="pvp">${producto.precio}€</span>
+                        </span>
+                    </div>
+                `;
+                // <article <p> <figure> </article>
+                contenedor.appendChild(tarjeta)
+            });
+        })
+</script>

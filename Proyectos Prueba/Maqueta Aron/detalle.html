@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Producto - PowerPlanet</title>
+    <link rel="stylesheet" href="css/detalle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div id="menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <figure>
+            <img src="img/logo.png" alt="Logo">
+        </figure>
+
+        <form>
+            <input type="search" placeholder="Buscar...">
+        </form>
+
+        <nav>
+            <a href="#">Black Friday 2025</a> 
+            <a href="#">¡Contáctanos!</a>
+            <a href="#">ES</a>
+        </nav>
+
+        <div id="carrito">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+    </header>
+
+    <main>
+        <nav class="navegador">
+            <a href="#"><i class="fa-solid fa-house"></i><span>Smartphones > iPhone Renovado > iPhone 16 Pro Max</span></a>
+        </nav>
+
+        <nav class="col-img" id="imagen-columna"></nav>
+
+        <figure class="col-imagen-principal">
+            <div class="etiqueta">
+                <h2>FRESH</h2>
+                <h2 style="font-size: 20px; color: #ccff00;">FRIDAY</h2>
+            </div>
+            <img id="imagen-principal" src="" alt="Producto">
+        </figure>
+
+        <article class="col-detalles">
+            
+            <h1 id="nombre-producto"></h1>
+            
+            <div class="valoraciones">
+                <span class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="calificacion" id="calificacion">5.00 </span>
+                <span class="opiniones" id="opiniones" style="color: #666;"></span>
+            </div>
+
+            <div class="precio-block">
+                <span class="etiqueta-dto" id="descuento"></span>
+                <span class="precio-grande" id="precio-final"></span>
+            </div>
+            <p class="precio-mini">Precio recomendado: <span id="precio-original" style="text-decoration: line-through;"></span> <span>(i)</span></p>
+            <p class="precio-mini" style="color:#666">Los precios incluyen IVA</p>
+
+            <div class="caja-stock">
+                <div class="fila-stock">
+                    <div class="icono-circulo"><i class="fa-solid fa-truck"></i></div>
+                    <div>
+                        <p style="font-size:13px">Disponibilidad: <span style="color:#5d34f0; font-weight:bold;">¡En stock! Recíbelo mañana Jueves</span></p>
+                    </div>
+                </div>
+                <div class="fila-stock">
+                    <div class="icono-circulo"><i class="fa-solid fa-box-open"></i></div>
+                    <div>
+                        <p style="font-size:13px">Envío: <span style="color:#e6007e; font-weight:bold;">¡Gratis!</span></p>
+                    </div>
+                </div>
+                <div class="texto-extra">
+                    Devolución Gratis: Hasta 8 de Febrero <br> Garantía: 1 año
+                </div>
+            </div>
+
+            <div class="banner-negro">
+                <span>Ya disponible nuestro <strong>FRESH FRIDAY</strong>🚀</span>
+                <button>VER OFERTAS →</button>
+            </div>
+
+            <div class="selectores-area">
+                <p>Capacidad: <strong id="Capacidad"></strong></p>
+                <div class="botones-opciones">
+                    <button class="btn-opcion active" id="boton-activo"></button>
+                    <button class="btn-opcion" id="boton-inactivo"></button>
+                </div>
+
+                <p>Selecciona: <span style="color:#888">Azul Pacífico Estado Excelente</span></p>
+                <div class="botones-opciones">
+                    <button class="btn-opcion">Plata Estado Excelente</button>
+                    <button class="btn-opcion active">Azul Pacífico Estado Excelente</button>
+                    <button class="btn-opcion">Oro Estado Excelente</button>
+                </div>
+            </div>
+
+            <div class="area-compra">
+                <input type="number" value="0">
+                <button class="btn-comprar">¡COMPRAR AHORA!</button>
+            </div>
+
+            <div class="links-bajos">
+                <a href="#"><i class="fa-regular fa-bookmark"></i> Guardar</a>
+                <a href="#"><i class="fa-solid fa-share-nodes"></i> Compartir</a>
+            </div>
+
+        </article>
+    </main>
+
+</body>
+</html>
+<script>
+    fetch('data/detalles.json') 
+        .then(response => response.json())
+        .then(productos => {
+            const producto = productos[1];
+            
+            document.getElementById('nombre-producto').textContent = producto.nombre;
+            document.getElementById('calificacion').textContent = producto.valoracion;
+            document.getElementById('opiniones').textContent = producto.opiniones + " (opiniones) | Opina";
+            document.getElementById('precio-final').textContent = producto.precio + "€";
+            document.getElementById('precio-original').textContent = producto.precioOriginal + "€";
+            document.getElementById('descuento').textContent = "-" + producto.descuento + "%";
+            document.getElementById('Capacidad').textContent = producto.caracteristicas.disco;
+            document.getElementById('boton-activo').textContent = producto.caracteristicas.disco;
+            document.getElementById('boton-inactivo').textContent = "-------";
+
+            const imagenPrincipal = document.getElementById('imagen-principal');
+            imagenPrincipal.src = producto.imagenes[0];
+
+            const contenedorThumbs = document.getElementById('imagen-columna');
+            producto.imagenes.forEach(imagenUrl => {
+                const miniatura = document.createElement('figure');
+                miniatura.className = 'thumb-item';
+
+                let imagen = document.createElement('img');
+                imagen.setAttribute('src', imagenUrl);
+                
+                miniatura.appendChild(imagen);
+                
+                miniatura.addEventListener('click', function() {
+                    imagenPrincipal.src = imagenUrl;
+                });
+
+                contenedorThumbs.appendChild(miniatura);
+            });   
+        })
+</script>

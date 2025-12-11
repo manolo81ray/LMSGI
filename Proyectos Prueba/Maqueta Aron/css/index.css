@@ -22,6 +22,7 @@ header{
     flex-wrap: nowrap;
     justify-content: space-between;
 }
+
 header div#menu{
     color: white;
     flex-basis: 5%;
@@ -30,20 +31,24 @@ header div#menu{
     justify-content: center;
     align-items: center;
 }
+
 header #menu i{
     color: white;
     font-size: 30px
 
 }
+
 header figure{
     background-color: rosybrown;
     color: white;
     /* flex-basis: 20%; */
     height: 100%; 
 }
+
 header figure img{
     height: 100%;
 }
+
 header form{
     flex-basis: 25%;
     /* background-color: gray; */
@@ -52,6 +57,7 @@ header form{
     flex-wrap: nowrap;
     justify-content: center;
 }
+
 header form input{
    background-color:antiquewhite;
     padding: 6px;
@@ -60,6 +66,7 @@ header form input{
     color: blue;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 header nav{
     /* border: 1px solid white; */
     flex-basis: 30%;
@@ -69,6 +76,7 @@ header nav{
     justify-content: space-around; /* alineacion en eje principal */
     align-items: center; /* alineacion en eje secundario */
 }
+
 header nav a{
     display: none;
     color: white;
@@ -76,6 +84,7 @@ header nav a{
     font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 header nav a:hover{
     color: rgb(218, 253, 111)
 }
@@ -90,21 +99,24 @@ header #carrito{
     justify-content: space-around; /* alineacion en eje principal */
     align-items: center; /* alineacion en eje secundario */
 }
+
 header #carrito i{
     font-size: 25px;
     color: green;
 }
+
 /*
 ---elementos de linea: img, a, span, i input
 ---elemetnos de bloques: el resto de etiquetas de este codigo
 */
+
 main{
     background-color: white;
     flex-basis: 65%;
     /* height: 75vh; */
-    
     border: 2px solid black;
 }
+
 main section{ /* contenedor  */
     display: flex;
     flex-direction: row;
@@ -112,6 +124,7 @@ main section{ /* contenedor  */
     justify-content: space-around;
     gap: 20px;
 }
+
 main section article{ /* item */
     flex-basis: 20%; /* W/H segun el fleex-direction del padre */
     border: 1px solid black;
@@ -121,19 +134,26 @@ main section article{ /* item */
     justify-content: center; 
     align-items: center;  
     position: relative;
-  
     border-radius: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,.1);
     padding: 20px;
     transition: transform 0.2s ease-in;
 }
+
 main section article:hover{
     transform: translateY(-10px);
+}
+
+main section article .tarjeta{
+    text-decoration: none;
+    color: inherit;
+    display: block; /* esto nos permite tener el enlace dentro de todo el bloque es decir del article que hemos creado */
 }
 
 main section article p{
     color: red
 }
+
 main section article .badge{
     position: absolute; /* uso particular: efectos especiales */
     top: 5px;
@@ -149,6 +169,7 @@ main section article .badge{
     /* margin-top: 5px;
     margin-left: 5px; */
 }
+
 main section article .nombre{
     color: blue
 }
@@ -161,6 +182,7 @@ main section article figure{
     height: 150px;
     position: relative;
 }
+
 main section article figure img{
     border: 0px solid blue;
     height: 100%;
@@ -168,10 +190,28 @@ main section article figure img{
     top: 0px;
 
 }
+
 main section article .nombre{
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+main section article .features{
+    border: 0px solid red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: black;
+}
+
+main section article .features span{
+    border: 0px solid red;
+    text-align: center;
+    font-size: 15px;
+    padding: 2px;
+}
+
 main section article p {
     border: 0px solid black;
     display: flex;
@@ -180,13 +220,16 @@ main section article p {
     align-items: center;
     width: 100%;
 }
+
 main section article p .star i {
     font-size: 10px;
-    color: yellow;
+    color: rgb(238, 223, 8);
     margin-right: 3px;
 }
+
 main section article p .valoracion {
     font-size: 10px;
+    border: 0px solid red;
     color: red;
     margin-right: 3px;
 }
@@ -195,15 +238,15 @@ main section article p .opiniones{
     font-size: 10px;
     color: green;
 }
+
 main section article div {
-    margin: 5px 0px 5px 0px;
-    border: 0px solid red;
     display: flex;
     flex-direction: row;
-    justify-content: space-between  ;
+    justify-content: space-around  ;
     align-items: center;
     width: 100%;
 }
+
 main section article div .dto{
     background-color: rgb(183,67,139);
     color: black;
@@ -212,18 +255,25 @@ main section article div .dto{
     font-size: 12px;
     height: 50%;
 }
+
 main section article div .precios{
     display: flex;
     flex-direction: column;
     border: 0px solid black
 }
-main section article div .precion .pvr {
-    
+
+main section article div .precios .pvr {
+    font-size: 15px;
+    text-decoration: line-through;
+    color: gray;
 }
+
 main section article div .precios .pvp {
     font-size: 20px;
     font-weight: bold;
+    color: black;
 }
+
 footer{
     background-color: black;
     flex-basis: 30%;
@@ -245,31 +295,32 @@ footer nav#sociales{
     align-items: center;
     padding-left: 30px;
 }
+
 footer nav#sociales a { /* estado reposo fotograma */
     text-decoration: none;
     border: 0px solid black; 
     background-color: lightgreen;
     /* elemento en linea pero con propiedades de bloque */
     display: inline-block;
-    
     width: 50px;
     height: 50px;
     border-radius:50px;
     margin-right: 7px;;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
     transition: transform 0.3s ease-in-out; 
 }
+
 /* estado sobre (fotograma) */
+
 footer nav#sociales a:hover {
     /* fecto de transformacion */
     transform: translate(0px, -10px);
     transform: rotate(360deg);
 }
+
 /* footer nav#sociales a:nth-child(1) {
     margin-left: 30px;
 } */
@@ -278,26 +329,31 @@ footer nav#sociales a i {
     font-size: 30px;
     color: white;
 }
+
 footer div#subscribete{
     border: 1px solid black;
     flex-basis: 50%;
 }
+
 footer article {
     border: 1px solid black;
     flex-basis: 33%;
     padding-top: 20px;
 }
+
 footer article h3 {
     color: whitesmoke;
     text-transform: uppercase;
     margin-left: 15px;
     margin-bottom: 20px;
 }
+
 footer article nav{
     display: flex;
     flex-direction: column;
     margin-left: 25px;
 }
+
 footer article nav a{
     display: flex;
     flex-direction: row;
@@ -309,6 +365,7 @@ footer article nav a{
     text-decoration: none;
     color: whitesmoke;
 }
+
 footer article nav a i{
     font-size: 25px;
     margin-right: 10px;
@@ -317,4 +374,5 @@ footer article nav a i{
 footer article nav a span {
     font-size: 18px;
 }
+
 
