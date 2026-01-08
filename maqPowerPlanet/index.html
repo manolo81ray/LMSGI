@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
         </div>
     </header> 
     <main>
-        <h2>Lista de Productos que provienen de la API (BD)</h2>
+        <!-- <h2>Lista de Productos que provienen de la API (BD)</h2> -->
         <section id="catalogo">
             <article>
                 <p class="badge">Envio gratis</p>
@@ -71,7 +71,7 @@
                     <span>Precio</span>
                 </div>
                 <p class="stock">Stock</p>
-            </article>
+            </article> 
             
         </section>
     </main>
@@ -176,11 +176,9 @@
                 // el objeto document (JS) y sirve para que JS acceda L/W al DOM del HTML
                 //contenedor.innerHTML='Catalogo de Productos';
                 //con el innerHTML escribo el contenido del nodo <article> (creado anteriormente)
-                tarjeta.innerHTML =
+                    tarjeta.innerHTML =
                 `
-                    <a href="detalle.html?id=${producto.id}" class="tarjeta">
-                    < a href="" class="tarjeta
-                    <p class="badge">Envio gratis</p>
+                   <p class="badge">Envio gratis</p>
                     <figure>
                        <img src="${producto.imagen}" alt="Producto 1" />
                     </figure>
@@ -210,7 +208,12 @@
                     </div>
                 `;
                 // <article <p> <figure> </article>
-                contenedor.appendChild(tarjeta)
-            });
+                //******* añadimos un enlace a cada producto a su detalle ********
+                contenedor.appendChild(tarjeta);
+                tarjeta.addEventListener('click',() => {
+                    //creamos el parametros codigo = id del producto
+                    window.location.href = `detalle.html?codigo=${producto.id}`;
+                });
+            })
         })
 </script>

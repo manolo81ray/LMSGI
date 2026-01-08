@@ -28,9 +28,96 @@
             <i class="fa-solid fa-cart-shopping"></i>
         </div>
     </header>
-    <main> 
-        Producto
-    </main>
+    <main>
+        <nav id="informacion">
+            <a href="#">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="index.html">
+                <i class="fa-solid fa-greater-than"></i>
+                <span>Smartphones</span>
+            </a>
+            <a href="#">
+                <i class="fa-solid fa-greater-than"></i>
+                <span>Móviles</span>
+            </a>
+            <a href="#">
+                <i class="fa-solid fa-greater-than"></i>
+                <span>One Plus 13</span>
+            </a>
+        </nav>
+        <figure id="imagenes-columna">
+            <img src="img/detalle/apple_iphone_16_azul_01_l.jpg" alt="Imagen 1">
+            <img src="img/detalle/apple_iphone_16_azul_02_ad_l.jpg" alt="Imagen 2">
+            <img src="img/detalle/apple_iphone_16_azul_03_ad_l.jpg" alt="Imagen 3">
+            <img src="img/detalle/apple_iphone_16_azul_04_ad_l.jpg" alt="Imagen 4">
+            <img src="img/detalle/apple_iphone_16_azul_07_ad_l.jpg" alt="Imagen 5">
+        </figure>
+        <figure id="imagen-principal">
+            <div id="badges">
+                <img id="cyberweek" src="img/detalle/logo_cyberweek.webp" alt="logo_cyberweeek">
+                <img id="enviogratis" src="img/detalle/enviogratis.webp" alt="logo_enviogratis">
+            </div> 
+            <div id="foto">
+                <img id="producto" src="img/detalle/apple_iphone_16_azul_01_l.jpg" alt="imagen_principal">
+            </div> 
+        </figure>
+        <article id="caracteristicas">
+            <h1 id="nombre-producto">Sansung Galaxy Tab S10+</h1>
+            <div id="valoraciones">
+                <span class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span id="product_nvaloraciones" class="valoracion">44</span>
+                <span id="product_comentarios" class="opiniones">(7 opiniones)</span>
+            </div>
+            <div id="precio-rebajado">
+                <span id="product_descuento" class="dto">-65%</span>
+                <span id="product_pvo" class="precio-actual">499.99€</span>
+            </div>
+            <div id="precio-normal">
+                <span id="product_preciorecomendado" class="precio">Precio original:</span>
+                <span id="product_precio" class="precio-antiguo">1.379,99€</span>
+                <span class="iva">Los precios incluyen IVA</span>
+            </div>
+            <div class="tarjeta-envio">
+                <div class="stock_info">
+                    <i class="fa-solid fa-truck"></i> <!-- Esto es un elemento en linea(Awesome) que represeta un icono grafico -->
+                    <span>Disponibilidad: <strong>¡En stock! Recíbelo mañana Miércoles, 26 Nov.</strong></span>
+                </div>
+                <div class="envio_info">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Envío: <strong>¡Gratis!</strong></span>
+                </div>
+                <div class="detalles_envio">
+                    <span id="fecha">Devolución Gratis: Hasta 8 de Febrero</span>
+                    <span id="garantia">Garantía: 3 años</span>
+                </div>
+            </div>
+            <div class="Tarjeta-CyberWeek">
+                <div class="CyberWeek">
+                    <span>Ya disponible nuestro <strong>CyberWeek 🔥</strong></span>
+                </div>
+                <nav class="Ofertas">
+                    <a href="index.html" class="Ofertas">
+                        <strong>Ver OFERTAS</strong>
+                    </a>
+                </nav>
+            </div>
+            <div class="zona-compra">
+                <input type="number" value="0"> <!-- crea un contador -->
+                <button class="btn-comprar">¡COMPRAR AHORA!</button>
+            </div>
+            <div class="links">
+                <a href="#"><i class="fa-regular fa-bookmark"></i> Guardar</a>
+                <a href="#"><i class="fa-solid fa-share-nodes"></i> Compartir</a>
+            </div>
+        </article>
+    </main>   
     <footer>
         <nav id="sociales">
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -151,4 +238,48 @@
         </article>
     </footer>
 </body>
+<script>
+     // 1-. Obtener los parametros de la URL
+    const urlParmans = new URLSearchParams(window.location.search);
+    // 2-. Obtener el parametro 'id'
+    const idProd = parseInt(urlParmans.get('codigo'))
+    //comprobar que el id llega al detalle.html a traves de la URL
+    console.log ("--->", idProd)
+
+    fetch('data/productos.json')
+        .then(response => response.json())
+        .then ( productos => {
+            //buscar producto en array productos
+            const producto = productos.find(p => p.id === idProd);
+            //comprobamos desde la cosola si se esta correctamente enlazado
+            console.log("-1->",producto);
+            console.log("-2->", producto.nombre);
+
+            document.getElementById('nombre-producto').textContent = producto.nombre;
+            document.getElementById('product_nvaloraciones').textContent = producto.valoracion;
+            document.getElementById('product_comentarios').textContent = `( ${producto.opiniones} opiniones )`;
+            document.getElementById('product_descuento').textContent = `- ${producto.descuento} %`;
+            document.getElementById('product_pvo').textContent = `${producto.precio}€`;
+            document.getElementById('product_precio').textContent = `${producto.precioOriginal}€`;
+            
+            //Imagen Portada
+            document.getElementById('producto').setAttribute("src", producto.imagen);
+        
+            // Galeria Dinamica
+            const galeria = document.getElementById('imagenes-columna'); //Este codigo busca en mi html "imagenes-columna"
+            galeria.innerHTML=''; //Esto elimina las fotos de ejemplo del HTML
+            // Recorremos el array de fotos (img es la URL de cada foto)
+
+            producto.galeria.forEach(img => {   //coge la lista de URLs de la galeria del json
+                let imagen = document.createElement('img'); //crea una caja donde mete una nueva etiqueta img que es donde se van a meter todas las imagenes de la galeria del json
+                imagen.setAttribute("src", img); // ahora con el src permite coger la URL de la imagen, al encuentrarse dentro del src
+                galeria.appendChild(imagen) //este coge toda la etiqueta que hemos creado y la mete dentro del contenedor de galeria"imagenes-columna""
+
+                // Esto permite que al hacer click cambie la foto grande
+                imagen.addEventListener('click', () => { 
+                    document.getElementById('producto').setAttribute("src", img); 
+                });
+            });
+        })
+</script>
 </html>
