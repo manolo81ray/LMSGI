@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    color: black;
+    background-color: rgb(229, 229, 255);
+
+    display: grid;
+    grid-template-areas: 
+    "sociales     sociales    sociales"
+    "numero         login        login"
+    "menu           menu          menu"
+    "buttons       buttons       icono"
+    "listado       listado       arrow";
+    grid-template-columns: 5fr 3fr 2fr;
+    grid-template-rows: auto;
+    gap: 5px;
+    padding: 5px;
+}
+
+header nav.sociales{
+    border: 0px solid red;    
+    grid-area: sociales;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-top: 5px;
+}
+/* header nav.sociales{
+    width:60%;
+    margin: 0 auto;  se centra respecto del padre
+} */
+header nav.sociales a {
+    border: 0px solid blue; 
+    color: grey;
+}
+header nav.sociales a i{
+    border: 0px solid red;    
+}
+
+header nav.numero{
+    border: 0px solid red;    
+    grid-area: numero;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+header nav.numero span {
+    border: 0px solid blue;   
+    display: flex; 
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+header nav.numero span i{
+    border: 0px solid blue;
+    /* permite editar el tamaño del logo */
+    font-size: 13px;  
+    color: rgb(85, 26, 139);
+
+}
+header nav.numero a{
+    border: 0px solid red;    
+    text-decoration: none;
+    color: blue;
+}
+
+
+header nav.login{
+    border: 0px solid red;    
+    grid-area: login;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+}
+header nav.login span i {
+    border: 0px solid blue;    
+    font-size: 13px;
+    color: rgb(85, 26, 139);
+}
+header nav.login a {
+    border: 0px solid red;    
+    font-size: 16px;
+    color: blue;
+    text-decoration: none;
+}
+
+header div.menu{
+    border: 0px solid green;    
+    grid-area: menu;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-left: 70px;
+    padding-bottom: 10px;
+    /* height: 100px; */
+    gap: 25px;
+}
+
+header div.menu img {
+    border: 0px solid red;    
+    width: 70px;
+    /* Comando para quitar el fondo blanco de la imagen */
+    mix-blend-mode: multiply; 
+}
+
+header div.textos{
+    display: flex;
+    flex-direction: column;   
+    align-items: flex-start;
+    justify-content: center;
+}
+header div.textos h1 {
+    font-size: 1.8rem;
+}
+header div.textos p {
+    font-size: 1rem;
+    font-family:'Times New Roman', Times, serif;
+    
+}
+
+header div.buttons{
+    border: 0px solid purple;
+    grid-area: buttons;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    gap: 40px;   
+    padding: 5px;            
+}
+header button.tipo1{
+    border: 1px solid   rgb(229, 229, 255);    
+    background-color: rgb(206, 206, 229);
+    display: block;
+    width: 218px;
+    height: 64px;
+    border-radius: 10px;
+    padding-left: 11px;
+    padding-right: 10px;
+    font-size: 0.80rem;
+    font-family: 'Courier New', Courier, monospace;
+    /* text-align: center; */
+}
+header button.tipo2{
+    border: 1px solid   rgb(229, 229, 255);    
+    background-color: rgb(206, 206, 229);
+    display: block;
+    width: 218px;
+    height: 64px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header div.icono {
+    border: 0px solid red;    
+    grid-area: icono;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+header div.icono i{
+    font-size: 30px;
+    color: rgb(122, 122, 126);
+    cursor: pointer;
+}
+
+header nav.listado{
+    border: 0px solid red;    
+    grid-area: listado;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+    padding-top: 5px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+header nav.listado a {
+    border: 0px solid blue;    
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+header div.arrow {
+    border: 0px solid red;    
+    grid-area: arrow; 
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    color: rgb(85, 26, 139);
+    font-size: 15px;
+}
+
+main {
+    color: black;
+} 

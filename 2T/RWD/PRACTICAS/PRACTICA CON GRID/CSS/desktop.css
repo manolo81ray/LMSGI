@@ -1,0 +1,29 @@
+header {
+    grid-template-areas: 
+    "logo     titulo    titulo    registro"
+    "logo      menu      menu   oferta";
+    grid-template-columns: 2fr 6fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+}
+
+header .oferta {
+    grid-area: oferta;
+    background-color: aqua;
+}
+
+header figure {
+    grid-area: logo;
+    background-color: orange;
+}
+
+header h1{
+    grid-area: titulo;
+}
+
+header #registro{
+    grid-area: registro;
+}
+
+header nav{
+    grid-area: menu;
+}

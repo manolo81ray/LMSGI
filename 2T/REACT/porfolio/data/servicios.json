@@ -1,0 +1,25 @@
+[{
+    "id": 1,
+    "titulo": "Fusión de Fibra",
+    "categoria": "Redes de Comunicaciones",
+    "descripcion": "La fusión de fibra optica es un proceso que consiste en unir dos fibras ópticas para crear una conexión... ",
+    "imagen": "https://www.cisco.com",
+    "tecnologias": ["Fusión de Fibra", "Redes de Comunicaciones", "Fujikura 310S"]
+},
+{
+    "id": 2,
+    "titulo": "Fusión de Fibra",
+    "categoria": "Redes de Comunicaciones",
+    "descripcion": "La fusión de fibra optica es un proceso que consiste en unir dos fibras ópticas para crear una conexión... ",
+    "imagen": "https://www.cisco.com",
+    "tecnologias": ["Fusión de Fibra", "Redes de Comunicaciones", "Fujikura 310S"]
+},
+{
+    "id": 3,
+    "titulo": "Fusión de Fibra",
+    "categoria": "Redes de Comunicaciones",
+    "descripcion": "La fusión de fibra optica es un proceso que consiste en unir dos fibras ópticas para crear una conexión... ",
+    "imagen": "https://www.cisco.com",
+    "tecnologias": ["Fusión de Fibra", "Redes de Comunicaciones", "Fujikura 310S"]
+}
+]

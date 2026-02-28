@@ -1,0 +1,78 @@
+div.container header.cabecera {
+    grid-template-areas: 
+        "top top"
+        "main bottom";
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+div.container header.cabecera section.top {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+div.container header.cabecera div.main {
+    justify-content: flex-start;
+    padding-right: 20px;
+}
+
+div.container header.cabecera div.main figure {
+    width: 100px;
+    margin: 0;
+}
+
+div.container header.cabecera div.main hgroup.titulo {
+    text-align: left;
+}
+
+div.container header.cabecera div.bottom {
+    display: grid;
+    grid-template-areas: "addr1 addr2 menu";
+    grid-template-columns: 1fr 1fr auto;
+    gap: 15px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    align-items: center;
+}
+
+div.container header.cabecera div.bottom address.address1,
+div.container header.cabecera div.bottom address.address2 {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    text-align: right;
+    font-size: 0.85rem;
+    border-radius: 0;
+}
+
+div.container header.cabecera div.bottom i.movil-icon {
+    display: none;
+}
+
+div.container header.cabecera div.bottom nav.menu {
+    margin-top: 0;
+}
+
+div.container header.cabecera div.bottom nav.menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+div.container header.cabecera div.bottom nav.menu ul li {
+    border: none;
+}
+
+div.container header.cabecera div.bottom nav.menu ul li a {
+    padding: 2px 0 2px 15px;
+    text-align: right;
+    font-size: 1rem;
+}
+
+div.container main section.galeria {
+    grid-template-columns: 1fr 1fr;
+    margin: 1.9rem 0;
+}

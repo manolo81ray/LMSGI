@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; 
+    background-color: white;
+    font-size: 14px;
+}
+
+img {
+    max-width: 100%; 
+    display: block;
+}
+
+a {
+    text-decoration: none; 
+}
+
+ul {
+  list-style: none;  
+}
+
+div.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+div.container header.cabecera {
+    background-color: rgb(221, 223, 224); 
+    padding: 15px;
+    display: grid;
+    grid-template-areas: 
+        "top"
+        "main"
+        "bottom";
+    gap: 15px;
+    border:crimson 1px dashed;
+}
+
+div.container header.cabecera section.top {
+    grid-area: top;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: #50256f;
+    border: green 1px dashed;
+    }
+
+div.container header.cabecera section.top nav.redes i {
+    margin-right: 10px;
+    color: rgb(90, 114, 124);
+    cursor: pointer;
+
+}
+
+div.container header.cabecera div.main {
+    grid-area: main; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    border: blueviolet 1px dashed;
+}
+
+div.container header.cabecera div.main figure {
+    width: 120px;
+    margin: 5px;
+}
+
+div.container header.cabecera div.main hgroup.titulo h1 {
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+div.container header.cabecera div.main hgroup.titulo p {
+    color: gray;
+    font-size: 1.0rem;
+}
+
+div.container header.cabecera div.bottom {
+    grid-area: bottom;
+    display: grid;
+    grid-template-areas: 
+        "addr1 addr2 icon"
+        "menu menu menu";
+    grid-template-columns: 1fr 1fr auto; 
+    gap: 5px;
+    align-items: center;
+    border: blue 1px dashed;
+}
+
+div.container header.cabecera div.bottom address.address1 {
+    grid-area: addr1;
+    background-color:  rgb(193, 193, 193);
+    padding: 8px 10px;
+    text-align: center;
+    font-style: normal;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: chocolate 1px dashed;
+}
+
+div.container header.cabecera div.bottom address.address2 {
+    grid-area: addr2;
+    background-color:  rgb(193, 193, 193);
+    padding: 8px 10px;
+    text-align: center;
+    font-style: normal;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: darkorange 1px dashed;
+}
+
+div.container header.cabecera div.bottom i.movil-icon {
+    grid-area: icon;
+    font-size: 1.8rem;
+    padding: 5px;
+    color: #676767;
+    cursor: pointer;
+    justify-self: end;
+    border: brown 1px dashed;
+}
+
+div.container header.cabecera div.bottom nav.menu {
+    grid-area: menu;
+    margin-top: 5px;
+    border: cornflowerblue 1px dashed;
+}
+
+div.container header.cabecera div.bottom nav.menu ul {
+    display: flex;
+    flex-direction: column;
+}
+
+div.container header.cabecera div.bottom nav.menu ul li {
+    border-bottom: 1px solid gray; 
+}
+
+div.container header.cabecera div.bottom nav.menu ul li a {
+    display: block;
+    padding: 10px;
+    color: #50256f;
+    font-weight: bold;
+}
+
+div.container header.cabecera div.bottom nav.menu ul li a i {
+    display: none;
+}
+
+div.container main {
+    padding: 15px;
+    border: darkred 1px dashed;
+}
+
+div.container main h2.titulo-seccion {
+    font-size: 1.2rem;
+}
+
+div.container main section.galeria {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 1.9rem;
+    border:darkolivegreen 1px dashed;
+}
+
+div.container main section.galeria article.ficha {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+div.container main section.galeria article.ficha figure { 
+    order: 1; 
+    margin: 0; 
+}
+
+div.container main section.galeria article.ficha h3 { 
+    order: 2; 
+    padding: 10px; 
+    text-align: center; 
+    font-size: 1rem; 
+}
+div.container main section.galeria article.ficha header.info-precio { 
+    order: 3; 
+    background-color: #bbb; 
+    padding: 5px 10px; 
+    display: flex; 
+    justify-content: space-between; 
+    font-weight: bold; 
+    font-size: 0.9rem;
+}
+div.container main section.galeria article.ficha footer.info-iconos { 
+    order: 4; 
+    display: flex; 
+    justify-content: space-around; 
+    padding: 10px; 
+    border-top: 1px solid #eee; 
+}

@@ -1,0 +1,232 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(0, 57, 97);
+    padding: 0;
+    margin: 0;
+    /* width: 98%; */
+    position: relative;
+    padding-left: 16%;
+    color: white;
+}
+
+header h1{
+    border: 0px solid black;
+    margin: 0;
+    margin-top: 15px;
+    flex-basis: 75%;
+    /* height: auto; */
+    order: 2;
+    text-align: center;
+    height: auto;
+}
+
+header figure{
+    position: absolute;
+    display: block;
+    border:0px solid red;
+
+    top: 15%;
+    left: 5%;
+    right: 0%;
+    width: 10%;
+    bottom: 15%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* height: 100%;
+    width: 100%; */
+}
+
+header figure img{
+    width: 100%;
+    height: 100%;
+}
+
+header nav{
+    border:0px solid red;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    /* gap: 50px; */
+    margin: 0;
+    padding: 0;
+
+    margin-top: 10px;
+    margin-left: 1.5%;
+    margin-bottom: 10px;
+    order: 4;
+    flex-basis: 75%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+header nav a {
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+header button {
+    border: 0px solid yellow;
+    box-sizing: border-box;
+    color: white;
+    background-color: red;
+    border-radius: 15px;
+    padding: 15px 20px;
+    height: auto;
+
+    /* esto permite que se alinee el boton */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 12%;
+    order: 3;
+    margin: 0;
+    
+    transform: translateY(30px);
+    font-weight: 900;
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2em;
+}
+
+header button:hover {
+    box-shadow: 4px 4px 0 rgba(255, 0, 0, 0.559); 
+}
+
+/* display: none; oculta ese contenedor */
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    padding-left: 0%;
+    box-sizing: border-box; /* muy bueno, para que se englobe en la mima caja tanto el propio contenido como el padding, margin,etec. */
+    margin: 2%;
+}
+
+main nav {
+    border: 1px solid black;
+    background-color: rgb(235, 234, 234);
+    border-radius: 10px;
+    /* Necesitamos anular el postion de la tablet ya que nos intere que se 
+    comporte como otro hijo normal del padre  */
+    position: static;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 15px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: auto;
+    flex-basis: 16%;
+    order: 1;
+}
+
+main nav a{
+    padding: 8px;
+    text-decoration: none;
+}
+
+main section{
+    margin-left: 20px;
+    flex-basis: 50%;
+    order: 2;
+}
+
+main section h3{
+    margin-top: 5px;
+}
+
+main section{
+    gap: 16px;
+    flex-basis: 54%;
+}
+
+main section ul{
+    margin-top: 2px;
+}
+
+main section li{
+    line-height: 1.7; /* Esto separa la línea de arriba del texto con la de abajo */
+}
+
+main section li strong{
+    margin-right: 5px;
+}
+
+main aside {
+    display: block;
+    padding: 15px;
+    background-color: rgb(51, 152, 218);
+    color: white;
+
+    margin-left: 10px;
+    border-radius: 10px;
+    flex-basis: 24%;
+    order: 3;
+}
+
+footer{
+    display: block; /* necesitamos usar block para que no se generen espacios raros entre los hijos */
+    position: relative;
+    flex-wrap: wrap;
+    align-items: start;
+    padding-top: 40px;
+    width: 100%;
+}
+
+footer h2{
+    align-items: flex-end;
+    height: 50px;
+    width: 50%;
+}
+
+footer nav{
+    flex-direction: row;
+    width: 50%;
+}
+
+footer div{
+    display: block;
+    position: absolute;
+
+    left: 54%;
+    top: 8%;
+    bottom: 0;
+    width: 40%;
+    flex-direction: column;
+    align-items: start;
+}
+
+footer div h2{
+    border: 0px solid red;
+    margin: 0;
+    justify-content: flex-start;
+}
+
+footer div p{
+    border: 0px solid red;
+    padding: 0px;
+    padding-bottom: 4px;
+    padding-top: 3px;
+    top: 0;
+}
+

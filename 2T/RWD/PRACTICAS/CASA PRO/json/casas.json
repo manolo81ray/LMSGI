@@ -1,0 +1,152 @@
+[
+    {
+    "id": 1,
+    "ref": "3511",
+    "precio": "115.000 €",
+    "imagen": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/563466802.jpg?k=c3e9f5456bf771618da5aa9e2d78837a007685f2809784c74a5b753e49849b04&o=",
+    "titulo": "Apartamento en Mojácar Playa con Piscina",
+    "area": "72m2",
+    "banos": 1,
+    "habitaciones": 2
+  },
+  {
+    "id": 2,
+    "ref": "3512",
+    "precio": "129.500 €",
+    "imagen": "https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCT2wPZNsw48fOO6fZf2JyyLpmtnY9L0eInQUz5tkQklYaK00tmbVSLp7oXbPMow1DTySTb~xC4I0c81YsetxltEBU245ZPZ5aJ3i5pSoH0NvKcUHVL4hf7sgqEWCHzt0u0RT4xCKdkymRTBacOI8j3Hu4afytKb0I125YGxI-.jpg",
+    "titulo": "Residencial Los Altos con Vistas",
+    "area": "85m2",
+    "banos": 2,
+    "habitaciones": 3
+  },
+  {
+    "id": 3,
+    "ref": "3513",
+    "precio": "98.000 €",
+    "imagen": "https://img00.rhimg.com/h.23457979.795.500.0.ffffff.5d5d5090.jpg",
+    "titulo": "Bajo con Jardín en Zona Marina",
+    "area": "65m2",
+    "banos": 1,
+    "habitaciones": 2
+  },
+  {
+    "id": 4,
+    "ref": "3514",
+    "precio": "145.000 €",
+    "imagen": "https://www.balearic-properties.com/property-image/1920_AITAJP3130_131755_V0_ABCF.jpg",
+    "titulo": "Apartamento Moderno Cerca del Mar",
+    "area": "90m2",
+    "banos": 2,
+    "habitaciones": 3
+  },
+  {
+    "id": 5,
+    "ref": "3515",
+    "precio": "385.000 €",
+    "imagen": "https://teamjaviervillalba.com/wp-content/uploads/2024/05/259-Chalet_independiente_El_Bosque_Villaviciosa_Madrid.webp",
+    "titulo": "Chalet de Lujo Independiente",
+    "area": "210m2",
+    "banos": 3,
+    "habitaciones": 4
+  },
+  {
+    "id": 6,
+    "ref": "3516",
+    "precio": "420.000 €",
+    "imagen": "https://media.vrbo.com/lodging/37000000/36120000/36119600/36119513/ae66b4d5.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+    "titulo": "Villa Exclusiva Primera Línea",
+    "area": "180m2",
+    "banos": 4,
+    "habitaciones": 5
+  },
+  {
+    "id": 7,
+    "ref": "3517",
+    "precio": "295.000 €",
+    "imagen": "https://fotorural.com/imagenes-filtros/piscina-privada.jpg",
+    "titulo": "Casa Familiar con Piscina Privada",
+    "area": "150m2",
+    "banos": 2,
+    "habitaciones": 4
+  },
+  {
+    "id": 8,
+    "ref": "3518",
+    "precio": "250.000 €",
+    "imagen": "https://inmoferrari.com/wp-content/uploads/2025/04/015-1.jpg",
+    "titulo": "Chalet Adosado Zona Tranquila",
+    "area": "135m2",
+    "banos": 2,
+    "habitaciones": 3
+  },
+  {
+    "id": 9,
+    "ref": "3519",
+    "precio": "165.000 €",
+    "imagen": "https://images.trvl-media.com/lodging/19000000/18770000/18769700/18769611/a01df78d.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+    "titulo": "Dúplex con Encanto en el Pueblo",
+    "area": "95m2",
+    "banos": 2,
+    "habitaciones": 2
+  },
+  {
+    "id": 10,
+    "ref": "3520",
+    "precio": "178.000 €",
+    "imagen": "https://hips.hearstapps.com/hmg-prod/images/casa-de-campo-galicia-reformada-estefania-carrero-salon-sofa-649451ca273bd.jpg?resize=980:*",
+    "titulo": "Casa Tradicional Reformada",
+    "area": "110m2",
+    "banos": 2,
+    "habitaciones": 3
+  },
+  {
+    "id": 11,
+    "ref": "3521",
+    "precio": "155.000 €",
+    "imagen": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567509316.jpg?k=d392ca3d44ed4b0429256ff04da9bc89662414b7ab815668c704a7a2c175634e&o=",
+    "titulo": "Dúplex Luminoso con Terraza",
+    "area": "88m2",
+    "banos": 1,
+    "habitaciones": 2
+  },
+  {
+    "id": 12,
+    "ref": "3522",
+    "precio": "190.000 €",
+    "imagen": "https://estaticosgn-cdn.deia.eus/clip/4fa15907-456b-4347-9efd-d267d2bdf441_16-9-aspect-ratio_default_0.jpg",
+    "titulo": "Vivienda Típica en Casco Antiguo",
+    "area": "105m2",
+    "banos": 2,
+    "habitaciones": 3
+  },
+  {
+    "id": 13,
+    "ref": "3523",
+    "precio": "215.000 €",
+    "imagen": "https://noticias.spainhouses.net/wp-content/uploads/barcelona-barcelona-1.jpg",
+    "titulo": "Ático de Lujo Vistas al Mar",
+    "area": "95m2",
+    "banos": 2,
+    "habitaciones": 2
+  },
+  {
+    "id": 14,
+    "ref": "3524",
+    "precio": "185.000 €",
+    "imagen": "https://www.naturahouse.es/wp-content/uploads/2025/07/32012L-SGAP12L-32.jpg",
+    "titulo": "Ático con Solarium Privado",
+    "area": "80m2",
+    "banos": 1,
+    "habitaciones": 2
+  },
+  {
+    "id": 15,
+    "ref": "3525",
+    "precio": "230.000 €",
+    "imagen": "https://static.elduomomagazine.com/wp-content/uploads/2025/06/pic-florence-23.jpeg",
+    "titulo": "Gran Terraza Panorámica",
+    "area": "115m2",
+    "banos": 2,
+    "habitaciones": 3
+  }
+]

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Casa de tus Sueños</title>
+    <link rel="stylesheet" href="css/movil.css">
+    <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 768px)">
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="cabecera">
+            
+            <section class="top">
+                <nav class="redes">
+                    <i class="fa-brands fa-pinterest-p"></i>
+                    <i class="fa-brands fa-google-plus-g"></i>
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </nav>
+                <div class="login">
+                    <span><i class="fa-solid fa-phone"></i> 629 76 03 03 Te llamamos</span>
+                    <span><i class="fa-solid fa-right-to-bracket"></i> Login</span>
+                </div>
+            </section>
+
+            <div class="main">
+                <figure>
+                    <img src="img/respetuoso-medio-ambiente-golden-house-3d-real-estate-rendering_585146-138-removebg-preview.png" alt="Logo">
+                </figure>
+                <hgroup class="titulo">
+                    <h1>La Casa de tus sueños</h1>
+                    <p>Inmobiliaria la Laguna</p>
+                </hgroup>
+            </div>
+
+            <div class="bottom">
+                <address class="address1">
+                    123 QuickSale Street<br>Chicago, IL 60606
+                </address>
+                <address class="address2">
+                    123-456-7890<br>info@yoursite.com
+                </address>
+
+                <i class="fa-solid fa-bars movil-icon"></i>
+
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-house"></i><span class="texto">Home</span></a></li>
+                        <li><a href="#"><i class="fa-solid fa-building"></i><span class="texto">Viviendas</span></a></li>
+                        <li><a href="#"><i class="fa-solid fa-newspaper"></i><span class="texto">Noticias</span></a></li>
+                        <li><a href="#"><i class="fa-solid fa-file-invoice"></i><span class="texto">Presupuesto</span></a></li>
+                    </ul>
+                </nav>
+            </div> 
+        </header>
+
+        <main>
+            <h2 class="titulo-seccion">Viviendas en Mojacar</h2>
+            <section class="galeria" id="contenedor-casas">
+            </section>
+        </main>
+    </div>
+
+    <script>
+        fetch('json/casas.json')
+            .then(response => response.json())
+            .then(casas => {
+                const contenedor = document.getElementById('contenedor-casas');
+                
+                casas.forEach(casa => {
+                    const tarjeta = document.createElement('article');
+                    tarjeta.classList.add('ficha');
+
+                    tarjeta.innerHTML = `
+                        <header class="info-precio">
+                            <span class="ref">Ref: ${casa.ref}</span>
+                            <span class="precio">${casa.precio}</span>
+                        </header>
+
+                        <figure>
+                            <img src="${casa.imagen}" alt="${casa.titulo}" loading="lazy">
+                        </figure>
+
+                        <h3>${casa.titulo}</h3>
+
+                        <footer class="info-iconos">
+                            <span><i class="fa-solid fa-house-chimney"></i> ${casa.area}</span>
+                            <span><i class="fa-solid fa-bath"></i> ${casa.banos}</span>
+                            <span><i class="fa-solid fa-bed"></i> ${casa.habitaciones}</span>
+                        </footer>
+                    `;
+                    
+                    contenedor.appendChild(tarjeta);
+                });
+            })
+    </script>
+</body>
+</html>

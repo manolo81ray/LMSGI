@@ -1,3 +1,136 @@
-header{
-    background-color: blue;
+
+header h1{
+    border: 0px solid black;
+    margin-top: 10px;
 }
+
+header nav{
+    display: block;
+    flex-direction: row;
+    padding: 15px;
+    /* gap: 50px; */
+    margin-top: 15px;
+}
+
+header nav a {
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 10px;  
+    padding-bottom: 10px;
+    padding-right: 30px;
+}
+
+header button {
+    margin-bottom: 15px;
+}
+
+main{
+    display: block;
+    position: relative;
+    /* height: 100%; */
+    width: 100%;
+    padding-left: 30%;
+
+    box-sizing: border-box; /* muy bueno, para que se englobe en la mima caja tanto el propio contenido como el padding, margin,etec. */
+}
+
+main nav{
+    position: absolute;
+    
+    /* estriamos el menu lateral, para ocupar todo el largo del main*/
+    left: 0;
+    top: 1%;
+    bottom: 0;
+
+    width: 28%;
+    height: 98%;
+    margin-left: 20px;
+}
+
+main nav a{
+    padding: 8px;
+}
+
+main section{
+    margin-left: 20px;
+}
+
+main section h3{
+    margin-top: 5px;
+}
+
+main section{
+    gap: 16px;
+}
+
+main section ul{
+    margin-top: 2px;
+}
+
+main section li{
+    line-height: 1.7; /* Esto separa la línea de arriba del texto con la de abajo */
+}
+
+main section li strong{
+    margin-right: 5px;
+}
+
+main aside {
+    display: block;
+    padding: 15px;
+    background-color: rgb(51, 152, 218);
+    color: white;
+
+    margin-left: 5%;
+    margin-right: 4%;
+    border-radius: 10px;
+
+}
+
+footer{
+    display: block; /* necesitamos usar block para que no se generen espacios raros entre los hijos */
+    position: relative;
+    flex-wrap: wrap;
+    align-items: start;
+    padding-top: 40px;
+    width: 100%;
+}
+
+footer h2{
+    border: 0px solid black;
+    align-items: flex-end;
+    height: 50px;
+    width: 50%;
+}
+
+footer nav{
+    flex-direction: row;
+    width: 50%;
+}
+
+footer div{
+    display: block;
+    position: absolute;
+
+    left: 54%;
+    top: 8%;
+    bottom: 0;
+    width: 40%;
+    flex-direction: column;
+    align-items: start;
+}
+
+footer div h2{
+    border: 0px solid red;
+    margin: 0;
+    justify-content: flex-start;
+}
+
+footer div p{
+    border: 0px solid red;
+    padding: 0px;
+    padding-bottom: 4px;
+    padding-top: 3px;
+    top: 0;
+}
+

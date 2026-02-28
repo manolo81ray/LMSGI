@@ -1,0 +1,6 @@
+@media (min-width: 600px) {
+  .info-bar { flex-direction: row; flex-wrap: wrap; }
+  .slogan { flex: 2; }
+  .contact { flex: 1; }
+  .menu { width: 100%; }
+}
