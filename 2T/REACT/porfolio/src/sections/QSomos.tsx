@@ -9,6 +9,19 @@ const QSomos = () => {
 // la funcion devuelve lo que haya  en el codigo HTML, etc.
         <section id="qsomos" className="min-h-screen flex items-center justify-center">
             <h1>Quienes Somos</h1>
+            <Card>
+            <CardHeader>
+                <CardTitle>Card Title</CardTitle>
+                <CardDescription>Card Description</CardDescription>
+                <CardAction>Card Action</CardAction>
+            </CardHeader>
+            <CardContent>
+                <p>Card Content</p>
+            </CardContent>
+            <CardFooter>
+                <p>Card Footer</p>
+            </CardFooter>
+            </Card>
         </section>
     )
 } 
