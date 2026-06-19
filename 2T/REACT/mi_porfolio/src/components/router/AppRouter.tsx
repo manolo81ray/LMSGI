@@ -13,7 +13,7 @@ import { ProyectoDetalle } from "@/pages/proyectos/ProyectoDetalle";
 import { Privacidad } from "@/pages/legal/Privacidad";
 import { AvisoLegal } from "@/pages/legal/AvisoLegal";
 import { Login } from "@/pages/auth/Login";
-import { BackLayout } from "@/layouts/backend/BackLayout";
+import { BackLayout } from "@/components/layouts/BackLayout";
 import { Dashboard } from "@/pages/admin/Dashboard";
 import { CursosHome } from "@/pages/admin/cursos/Home";
 import { ProyectosHome } from "@/pages/admin/proyectos/Home";
