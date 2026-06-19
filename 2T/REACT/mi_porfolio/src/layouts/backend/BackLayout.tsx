@@ -1,0 +1,38 @@
+import { useEffect } from "react"
+import { AppSidebar } from "@/components/app-sidebar"
+import { SiteHeader } from "@/components/site-header"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { TooltipProvider } from "@/components/ui/tooltip"
+import { Outlet } from "react-router-dom"
+
+export function BackLayout() {
+    useEffect(() => {
+        document.body.classList.add("admin-theme", "dark")
+        return () => {
+            document.body.classList.remove("admin-theme", "dark")
+        }
+    }, [])
+
+    return (
+        <div className="admin-theme dark">
+            <TooltipProvider>
+                <SidebarProvider
+                    style={{
+                        "--sidebar-width": "280px",
+                        "--header-height": "calc(var(--spacing) * 16)",
+                    } as React.CSSProperties}
+                >
+                    <AppSidebar variant="inset" />
+                    <SidebarInset>
+                        <SiteHeader />
+                        <div className="flex flex-1 flex-col">
+                            <div className="escala-grande mx-auto w-full max-w-360 flex-1 px-4 py-6 md:px-6 lg:py-10">
+                                <Outlet />
+                            </div>
+                        </div>
+                    </SidebarInset>
+                </SidebarProvider>
+            </TooltipProvider>
+        </div>
+    )
+}
