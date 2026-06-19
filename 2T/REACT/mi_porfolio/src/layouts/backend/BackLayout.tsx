@@ -1,6 +1,6 @@
 import { useEffect } from "react"
-import { AppSidebar } from "@/components/app-sidebar"
-import { SiteHeader } from "@/components/site-header"
+import { AppSidebar } from "@/components/ui/app-sidebar"
+import { SiteHeader } from "@/components/ui/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Outlet } from "react-router-dom"

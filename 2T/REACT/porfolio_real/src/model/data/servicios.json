@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "titulo": "Fusión de Fibra",
+        "categoria": "Redes de Comunuicaciones",
+        "descripcion": "La fusión de fibra óptica une dos fibras ópticas mediante una máquina de fusión (calor o electricidad) para crear una conexión continua. Es vital en redes de comunicaciones para una transmisión de datos eficiente y sin pérdidas, minimizando la atenuación y dispersión de la señal, lo que permite mayor capacidad y velocidad.",
+        "descripcion-small": "La fusión de fibra óptica une dos hilos mediante calor para crear una conexión continua y sin pérdidas, garantizando la máxima velocidad y eficiencia en la transmisión de datos.",
+        "imagen": "https://i.pinimg.com/736x/4b/65/b0/4b65b0ebc59ae09af1e03ebdae9b6520.jpg",
+        "tecnologias": ["Fusión de Fibra", "Redes de Comunicaciones", "Fujikura 310S"]
+    },
+    {
+        "id": 2,
+        "titulo": "Configuración de Routers Cisco",
+        "categoria": "Redes de Comunuicaciones",
+        "descripcion": "Configurar routers Cisco implica instalar y ajustar estos dispositivos de red (fabricados por Cisco Systems) para gestionar el tráfico de datos. Esto abarca la asignación de IPs, la configuración de protocolos de enrutamiento, la seguridad e la optimización del rendimiento. Los routers Cisco son comunes en empresas por sus características que aseguran conectividad eficiente y segura.",
+        "descripcion-small": "Configurar routers Cisco consiste en preparar y proteger estos equipos para gestionar el tráfico de red empresarial de forma eficiente.",
+        "imagen": "https://i.pinimg.com/736x/ad/60/13/ad6013aeef3bc665c6aab582a4ea49bd.jpg",
+        "tecnologias": ["Routers", "Redes de Comunicaciones", "Cisco ISR 4000 Series"]
+    },
+    {
+        "id": 3,
+        "titulo": "Desarrollo de Aplicaciones Web Microservicios",
+        "categoria": "Desarrollo de Software",
+        "descripcion": "El desarrollo de aplicaciones web con microservicios consiste en crear apps a partir de múltiples servicios pequeños, independientes y escalables que se comunican por API. Esto ofrece flexibilidad, escalabilidad y resiliencia, permitiendo a los equipos trabajar en paralelo sin afectar a toda la aplicación.",
+        "descripcion-small": "Los microservicios son apps divididas en piezas pequeñas e independientes que se conectan por API. Esto permite escalar, reparar o actualizar cada parte sin detener todo el sistema.",
+        "imagen": "https://i.pinimg.com/1200x/1f/22/f2/1f22f273a6955b346b687b32b962ef16.jpg",
+        "tecnologias": ["Microservicios", "NestJS", "Redes Nats"]
+    },
+    {
+        "id": 4,
+        "titulo": "Despliegue de Aplicaciones en la Nube",
+        "categoria": "Despliegue de Aplicaciones",
+        "descripcion-small": "La nube optimiza el desarrollo y reduce costos al ofrecer escalabilidad, flexibilidad y eficiencia operativa.",
+        "descripcion": "El despliegue de aplicaciones en la nube ofrece escalabilidad, flexibilidad y accesibilidad. Implica configurar la infraestructura, gestionar recursos y optimizar el rendimiento. Permite a las organizaciones reducir costos, mejorar la colaboración y acelerar el desarrollo.",
+        "imagen": "https://i.pinimg.com/1200x/fb/43/7e/fb437eee642f16fa16e9a796b2817798.jpg",
+        "tecnologias": ["DevOps", "Kubernetes", "Jenkins"]
+    },
+    {
+        "id": 5,
+        "titulo": "Despliegue de Aplicaciones en Kubernetes",
+        "categoria": "Despliegue de Aplicaciones",
+        "descripcion-small": "Kubernetes optimiza y escala aplicaciones mediante contenedores en cualquier entorno, gestionando clústeres, pods y servicios.",
+        "descripcion": "El despliegue de aplicaciones en Kubernetes ofrece escalabilidad, flexibilidad y gestión de recursos mediante la orquestación de contenedores. Implica configurar clústeres, gestionar pods y servicios, y optimizar el rendimiento, siendo crucial en entornos cloud y locales.",
+        "imagen": "https://i.pinimg.com/736x/11/5f/bf/115fbf56eb7556378743a0f2bd8f9d61.jpg",
+        "tecnologias": ["DevOps", "Kubernetes", "Jenkins"]
+    }
+]
