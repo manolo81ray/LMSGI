@@ -1,0 +1,27 @@
+$kind: http-request
+name: /contacto
+url: "{{baseUrl}}/contacto?id=string&nombre=string&tecnologias=string"
+method: PATCH
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  id: string
+  nombre: string
+  tecnologias: string
+body:
+  type: json
+  content: |-
+    {
+      "id": 6721,
+      "nombre": "string",
+      "tecnologias": [
+        "string",
+        "string"
+      ]
+    }
+examples: ./.resources/-contacto-3.resources/examples
+order: 4000

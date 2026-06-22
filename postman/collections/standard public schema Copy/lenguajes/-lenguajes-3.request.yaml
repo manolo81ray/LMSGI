@@ -1,0 +1,22 @@
+$kind: http-request
+name: /lenguajes
+url: "{{baseUrl}}/lenguajes?id_lenguaje=string&logo=string"
+method: PATCH
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  id_lenguaje: string
+  logo: string
+body:
+  type: json
+  content: |-
+    {
+      "id_lenguaje": 4381,
+      "logo": "string"
+    }
+examples: ./.resources/-lenguajes-3.resources/examples
+order: 4000

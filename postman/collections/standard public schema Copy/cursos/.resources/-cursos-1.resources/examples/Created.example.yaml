@@ -1,0 +1,38 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/cursos?select=string"
+  method: POST
+  headers:
+    - key: Prefer
+      value: resolution=merge-duplicates
+      description: Preference
+    - key: Content-Type
+      value: application/json
+  queryParams:
+    - key: select
+      value: string
+      description: Filtering Columns
+  body:
+    type: json
+    content: |-
+      {
+        "id": 4870,
+        "fecha": "1957-10-26",
+        "imagen": "string",
+        "plataforma": "string",
+        "titulo": "string",
+        "descripcion": "string",
+        "etiquetas": [
+          "string",
+          "string"
+        ],
+        "precio": 3954.13489209254,
+        "impartido": "string"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  body:
+    type: text
+    content: ""
+order: 1000

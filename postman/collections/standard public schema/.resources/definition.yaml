@@ -1,0 +1,9 @@
+$kind: collection
+name: standard public schema
+variables:
+  baseUrl: https://wrxrnwbnbnocaiaizbnc.supabase.co:443
+  supabase_key: ""
+auth:
+  type: bearer
+  credentials:
+    token: sb_publishable_ViHS67Tf8hGANsRGUMyleA_knu1fNix

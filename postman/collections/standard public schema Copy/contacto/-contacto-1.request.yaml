@@ -1,0 +1,27 @@
+$kind: http-request
+name: /contacto
+url: "{{baseUrl}}/contacto?select=string"
+method: POST
+headers:
+  - key: Prefer
+    value: resolution=merge-duplicates
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  - key: select
+    value: string
+    description: Filtering Columns
+body:
+  type: json
+  content: |-
+    {
+      "id": 6721,
+      "nombre": "string",
+      "tecnologias": [
+        "string",
+        "string"
+      ]
+    }
+examples: ./.resources/-contacto-1.resources/examples
+order: 2000

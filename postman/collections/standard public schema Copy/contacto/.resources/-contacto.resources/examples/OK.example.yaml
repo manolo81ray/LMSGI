@@ -1,0 +1,62 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/contacto?id=string&nombre=string&tecnologias=string&select=string&order=string&offset=string&limit=string"
+  method: GET
+  headers:
+    - key: Range
+      value: string
+      description: Limiting and Pagination
+    - key: Range-Unit
+      value: items
+      description: Limiting and Pagination
+    - key: Prefer
+      value: count=none
+      description: Preference
+    - key: Accept
+      value: application/json
+  queryParams:
+    - key: id
+      value: string
+    - key: nombre
+      value: string
+    - key: tecnologias
+      value: string
+    - key: select
+      value: string
+      description: Filtering Columns
+    - key: order
+      value: string
+      description: Ordering
+    - key: offset
+      value: string
+      description: Limiting and Pagination
+    - key: limit
+      value: string
+      description: Limiting and Pagination
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": 2400,
+          "nombre": "string",
+          "tecnologias": [
+            "string",
+            "string"
+          ]
+        },
+        {
+          "id": 8290,
+          "nombre": "string",
+          "tecnologias": [
+            "string",
+            "string"
+          ]
+        }
+      ]
+order: 1000

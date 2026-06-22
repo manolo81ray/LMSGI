@@ -24,7 +24,7 @@ export const LenguajesCard = ({ lenguajes }: Props) => {
     ];
 
     return (
-        <section className="bg-[#131b2e] py-24 xl:py-32 px-6 lg:px-24 xl:px-32 min-h-screen flex items-center">
+        <section className="bg-[#151e37] py-24 xl:py-32 px-6 lg:px-24 xl:px-32 min-h-screen flex items-center">
             <div className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 xl:gap-28 items-center">
 
                 {/* COLUMNA IZQUIERDA: Textos y Barras */}
@@ -86,7 +86,7 @@ export const LenguajesCard = ({ lenguajes }: Props) => {
                                             value={String(lenguaje.id_lenguaje)}
                                             className="w-auto flex-none rounded-full border border-[#e9c349]/30 bg-card/40 px-5 py-2 xl:px-7 xl:py-3 text-lg md:text-xl xl:text-2xl font-bold text-[#e9c349] dark:text-[#e9c349] shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#e9c349]/60 hover:bg-[#e9c349]/10 data-[state=active]:border-[#e9c349] dark:data-[state=active]:border-[#e9c349] data-[state=active]:bg-[#e9c349]/15 data-[state=active]:text-[#e9c349] dark:data-[state=active]:text-[#e9c349] data-[state=active]:shadow-[0_0_20px_rgba(233,195,73,0.25)]"
                                         >
-                                            {lenguaje.Nombre}
+                                            {lenguaje.nombre}
                                         </TabsTrigger>
                                         {index < lenguajes.length - 1 && (
                                             <span
@@ -111,7 +111,7 @@ export const LenguajesCard = ({ lenguajes }: Props) => {
                                         <CardContent className="p-0">
                                             <img
                                                 src={lenguaje.logo}
-                                                alt={`Logo de ${lenguaje.Nombre}`}
+                                                alt={`Logo de ${lenguaje.nombre}`}
                                                 className="block max-w-full h-auto object-contain"
                                             />
                                         </CardContent>

@@ -1,0 +1,20 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/rpc/rls_auto_enable"
+  method: POST
+  headers:
+    - key: Prefer
+      value: string
+      description: Preference
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: "{}"
+response:
+  statusCode: 200
+  statusText: OK
+  body:
+    type: text
+    content: ""
+order: 1000

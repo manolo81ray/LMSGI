@@ -10,6 +10,10 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { BadgeEnCurso } from "@/components/shared/BadgeEnCurso";
+
+// Titulación que debe mostrar el badge "En curso"
+const TITULACION_EN_CURSO = "administración de sistemas informáticos de red";
 
 export const FormacionDetalle = () => {
     const { id } = useParams();
@@ -41,13 +45,6 @@ export const FormacionDetalle = () => {
 
         fetchFormacion();
     }, [id]);
-
-    const formatearFecha = (fechaIso: string) => {
-        if (!fechaIso) return "Presente";
-        const fecha = new Date(fechaIso);
-        const formateado = new Intl.DateTimeFormat("es-ES", { month: "short", year: "numeric" }).format(fecha);
-        return formateado.charAt(0).toUpperCase() + formateado.slice(1);
-    };
 
     // ==========================================
     // PANTALLA DE CARGA
@@ -110,25 +107,29 @@ export const FormacionDetalle = () => {
 
                 {/* ENCABEZADO */}
                 <header className="mb-12">
-                    <div className="grid gap-8 lg:grid-cols-[1fr_360px] items-start">
+                    <div className="grid gap-8 lg:grid-cols-[1fr_360px] items-stretch">
                         {/* Texto */}
                         <div className="max-w-4xl">
+                            {/* Badge "En curso" (solo para la titulación en curso) */}
+                            {formacion.nombre?.trim().toLowerCase().includes(TITULACION_EN_CURSO) && (
+                                <BadgeEnCurso className="mb-4" />
+                            )}
+
                             <div className="flex flex-wrap items-center gap-4 mb-6">
                                 <h1 className="font-serif text-4xl md:text-6xl text-foreground leading-[1.05] tracking-tight">
                                     {formacion.nombre}
                                 </h1>
-                                <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-primary text-[11px] font-bold tracking-[0.15em] uppercase">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                    {enCurso ? "En Curso" : "Completada"}
-                                </span>
+                                {enCurso && (
+                                    <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-primary text-[11px] font-bold tracking-[0.15em] uppercase">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                        En Curso
+                                    </span>
+                                )}
                             </div>
-                            <p className="font-sans text-muted-foreground text-lg leading-[1.7] font-light max-w-3xl">
-                                {formacion.descripcion}
-                            </p>
                         </div>
 
                         {/* Imagen destacada (arriba a la derecha) */}
-                        <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-card border border-border shadow-[0_24px_48px_rgba(0,0,0,0.3)] group">
+                        <div className="relative w-full h-full min-h-[280px] lg:min-h-0 rounded-xl overflow-hidden bg-card border border-border shadow-[0_24px_48px_rgba(0,0,0,0.3)] group">
                             <img
                                 src={formacion.imagen}
                                 alt={formacion.institucion}
@@ -164,48 +165,14 @@ export const FormacionDetalle = () => {
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-3 text-muted-foreground text-base leading-[1.6]">
                                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-                                    Impartido en <span className="text-foreground font-medium">&nbsp;{formacion.institucion}</span>.
+                                    Fecha: <span className="text-foreground font-medium">&nbsp;01/06/2025</span>.
                                 </li>
                                 <li className="flex items-start gap-3 text-muted-foreground text-base leading-[1.6]">
                                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-                                    Modalidad / categoría: <span className="text-foreground font-medium">&nbsp;{formacion.tipo}</span>.
-                                </li>
-                                <li className="flex items-start gap-3 text-muted-foreground text-base leading-[1.6]">
-                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-                                    Periodo: <span className="text-foreground font-medium">&nbsp;{formatearFecha(formacion.fecha_inicio)} — {formatearFecha(formacion.fecha_fin)}</span>.
+                                    Modalidad: <span className="text-foreground font-medium">&nbsp;{formacion.Modalidad}</span>.
                                 </li>
                             </ul>
                         </section>
-
-                        {/* Áreas / etiquetas */}
-                        <section className="bg-card border border-border rounded-xl p-6 md:p-10 backdrop-blur-md">
-                            <div className="flex items-center gap-3 mb-6">
-                                <span className="w-9 h-9 rounded-md bg-primary/15 flex items-center justify-center text-primary">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-                                    </svg>
-                                </span>
-                                <h2 className="font-serif text-2xl md:text-3xl text-foreground">Datos Clave</h2>
-                            </div>
-
-                            <div className="flex flex-wrap gap-3">
-                                {[formacion.tipo, formacion.institucion, formacion.lugar_institucion]
-                                    .filter(Boolean)
-                                    .map((tag, index) => (
-                                        <span
-                                            key={index}
-                                            className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/5 border border-border rounded-md font-sans text-xs font-semibold text-foreground tracking-wide"
-                                        >
-                                            <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                            {tag}
-                                        </span>
-                                    ))}
-                            </div>
-                        </section>
-                    </div>
-
-                    {/* BARRA LATERAL */}
-                    <aside className="flex flex-col gap-6 lg:sticky lg:top-28">
 
                         {/* Detalles de la formación */}
                         <div className="bg-card border border-border rounded-xl p-6 md:p-8 backdrop-blur-md">
@@ -235,25 +202,6 @@ export const FormacionDetalle = () => {
                                     </span>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <span className="block font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">
-                                            Inicio
-                                        </span>
-                                        <span className="font-sans text-base text-foreground font-medium">
-                                            {formatearFecha(formacion.fecha_inicio)}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <span className="block font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">
-                                            Finalización
-                                        </span>
-                                        <span className="font-sans text-base text-foreground font-medium">
-                                            {formatearFecha(formacion.fecha_fin)}
-                                        </span>
-                                    </div>
-                                </div>
-
                                 <div>
                                     <span className="block font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-3">
                                         Ubicación
@@ -263,15 +211,12 @@ export const FormacionDetalle = () => {
                                     </span>
                                 </div>
                             </div>
-
-                            <Link
-                                to="/contacto"
-                                className="mt-8 w-full bg-gradient-to-br from-primary to-[#9d7d00] text-primary-foreground font-bold text-sm px-6 py-4 rounded-md shadow-[0_12px_24px_rgba(233,195,73,0.2)] hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-3"
-                            >
-                                Contáctame
-                                <span>→</span>
-                            </Link>
                         </div>
+
+                    </div>
+
+                    {/* BARRA LATERAL */}
+                    <aside className="flex flex-col gap-6 lg:sticky lg:top-28">
 
                         {/* Tarjeta secundaria: titulación verificada */}
                         <div className="relative overflow-hidden bg-card border border-border rounded-xl p-6 md:p-8 backdrop-blur-md shadow-[0_0_32px_0_rgba(233,195,73,0.06)]">

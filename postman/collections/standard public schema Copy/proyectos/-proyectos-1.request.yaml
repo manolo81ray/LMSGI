@@ -1,0 +1,32 @@
+$kind: http-request
+name: /proyectos
+url: "{{baseUrl}}/proyectos?select=string"
+method: POST
+headers:
+  - key: Prefer
+    value: resolution=merge-duplicates
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  - key: select
+    value: string
+    description: Filtering Columns
+body:
+  type: json
+  content: |-
+    {
+      "id": 514,
+      "titulo": "string",
+      "url": "string",
+      "fecha_creacion": "1976-05-26",
+      "tecnologia": "string",
+      "etiquetas": [
+        "string",
+        "string"
+      ],
+      "descripcion": "string",
+      "img_web": "string"
+    }
+examples: ./.resources/-proyectos-1.resources/examples
+order: 2000

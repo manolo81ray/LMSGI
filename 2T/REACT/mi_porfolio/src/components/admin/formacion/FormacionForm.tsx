@@ -34,6 +34,8 @@ export const FormacionForm = ({ className, formacion, onSaved, ...props }: Forma
         imagen: f?.imagen ?? "",
         institucion: f?.institucion ?? "",
         lugar_institucion: f?.lugar_institucion ?? "",
+        Modalidad: f?.Modalidad ?? "",
+        visible: f?.visible ?? true,
     })
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<FormacionFormValues>({

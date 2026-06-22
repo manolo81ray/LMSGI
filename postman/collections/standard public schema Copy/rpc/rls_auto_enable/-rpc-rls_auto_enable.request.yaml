@@ -1,0 +1,15 @@
+$kind: http-request
+name: /rpc/rls_auto_enable
+url: "{{baseUrl}}/rpc/rls_auto_enable"
+method: POST
+headers:
+  - key: Prefer
+    value: string
+    description: Preference
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: "{}"
+examples: ./.resources/-rpc-rls_auto_enable.resources/examples
+order: 1000

@@ -28,6 +28,7 @@ export const ServicioForm = ({ className, servicio, onSaved, ...props }: Servici
         descripcion: s?.descripcion ?? "",
         imagen: s?.imagen ?? "",
         precio: s?.precio ?? 0,
+        visible: s?.visible ?? true,
     })
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<ServicioFormValues>({

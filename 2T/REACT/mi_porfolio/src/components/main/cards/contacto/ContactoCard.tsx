@@ -6,7 +6,8 @@ interface Props {
 
 export const ContactoCard = ({ contacto }: Props) => {
     const esRedesSociales = contacto.nombre === 'Redes Sociales';
-    const esUbicacion = contacto.nombre === 'Ubicación';
+    // Zona "Mi ubicación" oculta: se mantiene el código pero no se renderiza
+    const esUbicacion = false && contacto.nombre === 'Ubicación';
 
     const svgs = Array.isArray(contacto.tecnologias) ? contacto.tecnologias : [];
 

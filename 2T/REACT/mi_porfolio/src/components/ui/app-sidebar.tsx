@@ -29,7 +29,7 @@ const navItems = [
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
-        <Sidebar collapsible="offcanvas" {...props}>
+        <Sidebar collapsible="offcanvas" className="h-[calc(100svh/0.8)]" {...props}>
             <SidebarHeader className="pb-0">
                 <Link
                     to="/admin"

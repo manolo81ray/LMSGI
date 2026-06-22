@@ -33,6 +33,7 @@ export const ProyectoForm = ({ className, proyecto, onSaved, ...props }: Proyect
         url: p?.url ?? "",
         img_web: p?.img_web ?? "",
         fecha_creacion: p?.fecha_creacion ? String(p.fecha_creacion).split("T")[0] : "",
+        visible: p?.visible ?? true,
     })
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<ProyectoFormValues>({

@@ -1,0 +1,25 @@
+$kind: http-request
+name: /descripcion
+url: https://wrxrnwbnbnocaiaizbnc.supabase.co/rest/v1/descripcion?select=*
+method: GET
+headers:
+  - key: Range
+    value: string
+    disabled: true
+    description: Limiting and Pagination
+  - key: Range-Unit
+    value: items
+    description: Limiting and Pagination
+  - key: Prefer
+    value: count=none
+    description: Preference
+  - key: Accept
+    value: application/json
+  - key: apikey
+    value: "{{supabase_key}}"
+  - key: Authorization
+    value: bearer {{supabase_key}}
+queryParams:
+  select: "*"
+examples: ./.resources/-descripcion.resources/examples
+order: 1000

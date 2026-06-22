@@ -1,0 +1,44 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/cursos?id=string&imagen=string&fecha=string&plataforma=string&titulo=string&descripcion=string&etiquetas=string&precio=string&impartido=string"
+  method: PATCH
+  headers:
+    - key: Prefer
+      value: return=none
+      description: Preference
+    - key: Content-Type
+      value: application/json
+  queryParams:
+    id: string
+    imagen: string
+    fecha: string
+    plataforma: string
+    titulo: string
+    descripcion: string
+    etiquetas: string
+    precio: string
+    impartido: string
+  body:
+    type: json
+    content: |-
+      {
+        "id": 4870,
+        "fecha": "1957-10-26",
+        "imagen": "string",
+        "plataforma": "string",
+        "titulo": "string",
+        "descripcion": "string",
+        "etiquetas": [
+          "string",
+          "string"
+        ],
+        "precio": 3954.13489209254,
+        "impartido": "string"
+      }
+response:
+  statusCode: 204
+  statusText: No Content
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,27 @@
+$kind: http-request
+name: /cursos
+url: "{{baseUrl}}/cursos?select=string"
+method: POST
+headers:
+  - key: Prefer
+    value: return=representation
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  - key: select
+    value: string
+    description: Filtering Columns
+body:
+  type: json
+  content: |-
+    {
+      "id_curso": "gen_random_uuid()",
+      "created_at": "now()",
+      "titulo": "string",
+      "categoria": "string",
+      "academia": "string",
+      "precio": 3755
+    }
+examples: ./.resources/-cursos-1.resources/examples
+order: 2000

@@ -1,0 +1,5 @@
+$kind: collection
+name: standard public schema Copy
+variables:
+  baseUrl: https://wrxrnwbnbnocaiaizbnc.supabase.co:443
+  supabase_key: ""

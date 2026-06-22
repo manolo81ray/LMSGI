@@ -8,6 +8,7 @@ export interface IFormacion {
     imagen:            string;
     institucion:       string;
     lugar_institucion: string;
+    Modalidad:         string;
     visible:           boolean;
     created_at?:       string;
     updated_at?:       string;

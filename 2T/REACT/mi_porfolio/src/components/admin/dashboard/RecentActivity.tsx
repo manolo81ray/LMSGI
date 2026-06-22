@@ -50,14 +50,14 @@ export const RecentActivity = () => {
     }, [])
 
     return (
-        <section className="surface-card flex flex-col gap-4 p-5">
+        <section className="surface-card flex min-h-0 flex-1 flex-col gap-4 p-5">
             <div>
                 <h2 className="text-label-lg font-semibold text-foreground">Actividad reciente</h2>
                 <p className="text-body-sm text-muted-foreground">Altas y cambios de visibilidad en tu portfolio.</p>
             </div>
 
             {items === null ? (
-                <ul className="flex flex-col divide-y divide-border">
+                <ul className="flex min-h-0 flex-1 flex-col divide-y divide-border overflow-y-auto">
                     {Array.from({ length: 4 }).map((_, i) => (
                         <li key={i} className="flex items-center gap-3 py-3">
                             <span className="size-9 animate-pulse rounded-lg bg-muted" />
@@ -69,7 +69,7 @@ export const RecentActivity = () => {
             ) : items.length === 0 ? (
                 <p className="py-6 text-center text-body-sm text-muted-foreground">Todavía no hay actividad.</p>
             ) : (
-                <ul className="flex flex-col divide-y divide-border">
+                <ul className="flex min-h-0 flex-1 flex-col divide-y divide-border overflow-y-auto">
                     {items.map((item) => {
                         const meta = META[item.tipo]
                         const accion = ACCION[item.accion]

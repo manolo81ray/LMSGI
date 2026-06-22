@@ -8,7 +8,7 @@ import logo from '@/assets/logo_mrg.png'
 // ─── Imagen del panel izquierdo ────────────────────────────────────────────
 // Sustituye esta URL por la ruta de tu imagen (local: '/login-bg.jpg'
 // o un import directo si la añades a src/assets/).
-const BG_IMAGE = 'https://i.pinimg.com/736x/93/3c/e5/933ce58d234bcbdc7ace8a4419a34892.jpg'
+const BG_IMAGE = 'https://i.pinimg.com/736x/b8/62/27/b862279c4568d8f598b1da509ff65e57.jpg'
 // ───────────────────────────────────────────────────────────────────────────
 
 export const Login = () => {
@@ -40,7 +40,7 @@ export const Login = () => {
     }
 
     return (
-        <main className="min-h-screen w-full flex bg-[#060e1d]">
+        <main className="min-h-[125vh] w-full flex bg-[#060e1d]">
 
             {/* ── Panel izquierdo: imagen decorativa ────────────────── */}
             <div className="hidden lg:block relative flex-1 overflow-hidden">
@@ -50,8 +50,8 @@ export const Login = () => {
                     aria-hidden="true"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#060e1d]/20 to-[#060e1d]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060e1d]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-[#060e1d]/20 to-[#060e1d]" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#060e1d]/60 via-transparent to-transparent" />
             </div>
 
             {/* ── Panel derecho: formulario ──────────────────────────── */}
@@ -61,7 +61,7 @@ export const Login = () => {
                 <div className="flex-1 flex flex-col items-center justify-center px-10 pr-20 xl:pr-28 gap-6">
 
                     {/* Contenido: ancho fijo para que no se estire */}
-                    <div className="w-full max-w-[420px] flex flex-col gap-7">
+                    <div className="w-full max-w-105 flex flex-col gap-7">
 
                         {/* Logo + cabecera */}
                         <div className="flex flex-col items-center text-center gap-4">
@@ -71,7 +71,7 @@ export const Login = () => {
                             <h1 className="font-sans text-3xl font-bold text-white tracking-tight">
                                 Acceso al backend
                             </h1>
-                            <p className="text-[#8a93aa] text-base leading-relaxed max-w-[280px]">
+                            <p className="text-[#8a93aa] text-base leading-relaxed max-w-70">
                                 Solo cuentas habilitadas pueden entrar al panel.
                             </p>
                         </div>
@@ -134,7 +134,7 @@ export const Login = () => {
                             <button
                                 type="submit"
                                 disabled={submitting}
-                                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-[#e9c349] to-[#9d7d00] text-[#1a1200] text-base font-bold py-4 tracking-wide shadow-[0_8px_28px_rgba(233,195,73,0.28)] transition-all hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:translate-y-0"
+                                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-br from-[#e9c349] to-[#9d7d00] text-[#1a1200] text-base font-bold py-4 tracking-wide shadow-[0_8px_28px_rgba(233,195,73,0.28)] transition-all hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:translate-y-0"
                             >
                                 {submitting ? (
                                     'Accediendo...'

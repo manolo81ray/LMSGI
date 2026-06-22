@@ -1,0 +1,30 @@
+$kind: http-request
+name: /servicios
+url: "{{baseUrl}}/servicios?id=string&imagen=string&nombre=string&tipo=string&descripcion=string&precio=string"
+method: PATCH
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  id: string
+  imagen: string
+  nombre: string
+  tipo: string
+  descripcion: string
+  precio: string
+body:
+  type: json
+  content: |-
+    {
+      "id": 9606,
+      "nombre": "string",
+      "imagen": "string",
+      "tipo": "string",
+      "descripcion": "string",
+      "precio": 1561.521796148946
+    }
+examples: ./.resources/-servicios-3.resources/examples
+order: 4000

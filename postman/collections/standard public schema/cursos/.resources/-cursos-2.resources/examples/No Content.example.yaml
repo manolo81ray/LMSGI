@@ -1,0 +1,23 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/cursos?id_curso=string&created_at=string&titulo=string&catego\
+    ria=string&academia=string&precio=string"
+  method: DELETE
+  headers:
+    - key: Prefer
+      value: return=none
+      description: Preference
+  queryParams:
+    id_curso: string
+    created_at: string
+    titulo: string
+    categoria: string
+    academia: string
+    precio: string
+response:
+  statusCode: 204
+  statusText: No Content
+  body:
+    type: text
+    content: ""
+order: 1000

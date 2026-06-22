@@ -1,0 +1,31 @@
+$kind: http-request
+name: /cursos
+url: "{{baseUrl}}/cursos?id_curso=string&created_at=string&titulo=string&catego\
+  ria=string&academia=string&precio=string"
+method: PATCH
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  id_curso: string
+  created_at: string
+  titulo: string
+  categoria: string
+  academia: string
+  precio: string
+body:
+  type: json
+  content: |-
+    {
+      "id_curso": "gen_random_uuid()",
+      "created_at": "now()",
+      "titulo": "string",
+      "categoria": "string",
+      "academia": "string",
+      "precio": 3755
+    }
+examples: ./.resources/-cursos-3.resources/examples
+order: 4000

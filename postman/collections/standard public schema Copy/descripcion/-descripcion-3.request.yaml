@@ -1,0 +1,32 @@
+$kind: http-request
+name: /descripcion
+url: "{{baseUrl}}/descripcion?id=string&saludo=string&nombre=string&biografia=string&subtitulo=string&foto=string&curriculum_url=string"
+method: PATCH
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  id: string
+  saludo: string
+  nombre: string
+  biografia: string
+  subtitulo: string
+  foto: string
+  curriculum_url: string
+body:
+  type: json
+  content: |-
+    {
+      "id": 4077,
+      "saludo": "string",
+      "nombre": "string",
+      "biografia": "string",
+      "subtitulo": "string",
+      "foto": "string",
+      "curriculum_url": "string"
+    }
+examples: ./.resources/-descripcion-3.resources/examples
+order: 4000

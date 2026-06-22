@@ -1,0 +1,33 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/descripcion?select=string"
+  method: POST
+  headers:
+    - key: Prefer
+      value: resolution=merge-duplicates
+      description: Preference
+    - key: Content-Type
+      value: application/json
+  queryParams:
+    - key: select
+      value: string
+      description: Filtering Columns
+  body:
+    type: json
+    content: |-
+      {
+        "id": 4077,
+        "saludo": "string",
+        "nombre": "string",
+        "biografia": "string",
+        "subtitulo": "string",
+        "foto": "string",
+        "curriculum_url": "string"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  body:
+    type: text
+    content: ""
+order: 1000

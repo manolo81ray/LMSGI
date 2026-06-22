@@ -11,9 +11,10 @@ import { FormSection } from "@/components/admin/shared/FormSection"
 import { insertCurso, updateCurso } from "@/model/api/backend/cursos/apiCursos"
 import type { ICursos } from "@/model/interfaces/formacion/ICursos"
 
-type CursoFormValues = Omit<ICursos, "id" | "etiquetas" | "fecha"> & {
+type CursoFormValues = Omit<ICursos, "id" | "etiquetas" | "fecha" | "fecha_fin"> & {
     etiquetas: string
     fecha: string
+    fecha_fin: string
 }
 
 interface CursoFormProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -31,9 +32,11 @@ export const CursoForm = ({ className, curso, onSaved, ...props }: CursoFormProp
         plataforma: c?.plataforma ?? "",
         imagen: c?.imagen ?? "",
         fecha: c?.fecha ? String(c.fecha).split("T")[0] : "",
+        fecha_fin: c?.fecha_fin ? String(c.fecha_fin).split("T")[0] : "",
         etiquetas: c?.etiquetas?.join(", ") ?? "",
         precio: c?.precio ?? 0,
         impartido: c?.impartido ?? "",
+        visible: c?.visible ?? true,
     })
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<CursoFormValues>({
@@ -49,6 +52,7 @@ export const CursoForm = ({ className, curso, onSaved, ...props }: CursoFormProp
         const payload = {
             ...data,
             etiquetas: data.etiquetas.split(",").map((e) => e.trim()).filter(Boolean),
+            fecha_fin: data.fecha_fin || null,
         } as unknown as Omit<ICursos, "id">
         const ok = isEditing && curso
             ? await updateCurso(curso.id, payload)
@@ -85,9 +89,15 @@ export const CursoForm = ({ className, curso, onSaved, ...props }: CursoFormProp
                             <Input id="precio" type="number" step="0.01" placeholder="49.99" aria-invalid={Boolean(errors.precio)} {...register("precio", { required: true, valueAsNumber: true })} />
                         </div>
                     </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="fecha">Fecha</Label>
-                        <Input id="fecha" type="date" aria-invalid={Boolean(errors.fecha)} {...register("fecha", { required: true })} />
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <div className="grid gap-2">
+                            <Label htmlFor="fecha">Fecha de inicio</Label>
+                            <Input id="fecha" type="date" aria-invalid={Boolean(errors.fecha)} {...register("fecha", { required: true })} />
+                        </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="fecha_fin">Fecha de fin (opcional)</Label>
+                            <Input id="fecha_fin" type="date" {...register("fecha_fin")} />
+                        </div>
                     </div>
                     <div className="grid gap-2">
                         <Label htmlFor="impartido">Impartido por (opcional)</Label>

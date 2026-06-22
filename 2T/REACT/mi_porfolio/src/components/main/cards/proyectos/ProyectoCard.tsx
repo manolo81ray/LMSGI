@@ -12,26 +12,23 @@ export const ProyectoCard = ({ proyecto }: Props) => {
     return (
         <Link
             to={`/proyecto/${proyecto.id}`}
-            className="group block w-full overflow-hidden rounded-sm border border-[#e9c349]/60 transition-all duration-700 md:relative md:aspect-4/5"
+            className="group relative block w-full overflow-hidden rounded-sm shadow-2xl transition-all duration-700"
         >
-            {/* 1. Imagen del proyecto.
-                - Móvil: se muestra completa (object-contain) sin recortar, con su alto natural.
-                - Desktop (md+): vuelve a ser fondo a pantalla completa de la card (object-cover). */}
-            <div className="relative bg-[#0b1326] md:absolute md:inset-0 md:z-0">
+            {/* 1. Imagen del proyecto a sangre completa, proporción apaisada (16/9)
+                para que las capturas de webs se vean bien con un recorte mínimo. */}
+            <div className="relative bg-[#0b1326]">
                 <img
                     src={proyecto.img_web}
                     alt={proyecto.titulo}
-                    className="w-full h-auto object-contain grayscale-20 transition-all duration-[1.5s] ease-out group-hover:grayscale-0 md:h-full md:object-cover md:group-hover:scale-110"
+                    className="w-full h-auto grayscale-20 transition-all duration-[1.5s] ease-out group-hover:grayscale-0 group-hover:scale-105"
                 />
-                {/* Overlay oscuro sutil para legibilidad (solo relevante en desktop, donde el texto va encima) */}
-                <div className="absolute inset-0 bg-linear-to-t from-[#0b1326] via-transparent to-transparent opacity-60" />
+                {/* Overlay oscuro para legibilidad del texto superpuesto */}
+                <div className="absolute inset-0 bg-linear-to-t from-[#0b1326] via-[#0b1326]/30 to-transparent opacity-80" />
             </div>
 
-            {/* 2. Contenedor de Información.
-                - Móvil: se coloca justo debajo de la imagen (flujo normal).
-                - Desktop (md+): caption flotante (glassmorphism) sobre la foto. */}
-            <div className="md:absolute md:bottom-6 md:left-6 md:right-6 md:z-10">
-                <div className="bg-[#1c2740] p-8 xl:p-11 border-t border-[#e9c349]/60 md:rounded-sm md:border md:border-[#e9c349]/60 md:shadow-2xl md:transform md:translate-y-4 md:group-hover:translate-y-0 md:transition-transform md:duration-500">
+            {/* 2. Contenedor de Información: caption flotante sobre la imagen, anclado abajo. */}
+            <div className="absolute bottom-6 right-6 z-10 max-w-[calc(100%-3rem)]">
+                <div className="w-fit ml-auto bg-[#1c2740]/95 p-6 xl:p-8 rounded-sm shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
 
                     {/* Tags / Etiquetas */}
                     <div className="flex flex-wrap gap-2 xl:gap-3 mb-4 xl:mb-6">

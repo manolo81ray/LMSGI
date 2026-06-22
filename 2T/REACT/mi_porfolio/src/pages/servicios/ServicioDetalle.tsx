@@ -74,7 +74,7 @@ export const ServicioDetalle = () => {
 
     // A partir de aquí, TypeScript ya sabe al 100% que 'servicio' NO es null
     return (
-        <article className="escala-grande bg-background min-h-screen text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
+        <article className="escala-grande bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
 
             {/* HERO SECTION */}
             <section className="pt-8 md:pt-12 pb-24 px-6 lg:px-24 max-w-screen-2xl mx-auto">

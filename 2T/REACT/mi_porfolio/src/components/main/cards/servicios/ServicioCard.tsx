@@ -28,11 +28,8 @@ export const ServicioCard = ({ servicio }: Props) => {
                 <img
                     src={servicio.imagen}
                     alt={servicio.nombre}
-                    className="w-full h-full object-cover opacity-100 group-hover:scale-110 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover opacity-100 transform-gpu will-change-transform scale-[1.01] group-hover:scale-110 transition-transform duration-700 ease-out [backface-visibility:hidden]"
                 />
-
-                {/* Degradado inferior para legibilidad del título, más suave ahora */}
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
 
                 {/* Etiqueta superior derecha */}
                 <span className="absolute top-6 right-6 font-sans text-base xl:text-lg font-bold tracking-[0.15em] text-[#ffc802] text-right uppercase z-10">

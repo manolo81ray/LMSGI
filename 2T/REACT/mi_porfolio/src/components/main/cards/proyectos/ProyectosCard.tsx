@@ -8,7 +8,7 @@ interface Props {
 export const ProyectosCard = ({ proyectos }: Props) => {
 
     return (
-        <section className="bg-[#131b2e] py-17 xl:py-28 px-6 lg:px-24 xl:px-32">
+        <section className="bg-[#131b2e] py-17 xl:py-28 px-6 lg:px-12 xl:px-16">
             <div className="max-w-screen-2xl mx-auto">
 
                 {/* Encabezado Editorial */}
@@ -25,7 +25,7 @@ export const ProyectosCard = ({ proyectos }: Props) => {
                 </header>
 
                 {/* Grid de Proyectos */}
-                <div className="grid gap-12 xl:gap-20 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+                <div className="grid gap-y-8 gap-x-16 lg:gap-x-24 xl:gap-x-32 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
                     {proyectos.map((proyecto, index) => (
                         <div
                             key={proyecto.id}

@@ -1,0 +1,42 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/proyectos?id=string&titulo=string&url=string&fecha_creacion=string&tecnologia=string&etiquetas=string&descripcion=string&img_web=string"
+  method: PATCH
+  headers:
+    - key: Prefer
+      value: return=none
+      description: Preference
+    - key: Content-Type
+      value: application/json
+  queryParams:
+    id: string
+    titulo: string
+    url: string
+    fecha_creacion: string
+    tecnologia: string
+    etiquetas: string
+    descripcion: string
+    img_web: string
+  body:
+    type: json
+    content: |-
+      {
+        "id": 514,
+        "titulo": "string",
+        "url": "string",
+        "fecha_creacion": "1976-05-26",
+        "tecnologia": "string",
+        "etiquetas": [
+          "string",
+          "string"
+        ],
+        "descripcion": "string",
+        "img_web": "string"
+      }
+response:
+  statusCode: 204
+  statusText: No Content
+  body:
+    type: text
+    content: ""
+order: 1000

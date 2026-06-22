@@ -1,0 +1,13 @@
+$kind: http-request
+name: /lenguajes
+url: "{{baseUrl}}/lenguajes?id_lenguaje=string&logo=string"
+method: DELETE
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+queryParams:
+  id_lenguaje: string
+  logo: string
+examples: ./.resources/-lenguajes-2.resources/examples
+order: 3000

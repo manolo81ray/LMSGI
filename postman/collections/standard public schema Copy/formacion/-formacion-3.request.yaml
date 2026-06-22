@@ -1,0 +1,36 @@
+$kind: http-request
+name: /formacion
+url: "{{baseUrl}}/formacion?id=string&tipo=string&fecha_inicio=string&fecha_fin=string&nombre=string&descripcion=string&imagen=string&institucion=string&lugar_institucion=string"
+method: PATCH
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  id: string
+  tipo: string
+  fecha_inicio: string
+  fecha_fin: string
+  nombre: string
+  descripcion: string
+  imagen: string
+  institucion: string
+  lugar_institucion: string
+body:
+  type: json
+  content: |-
+    {
+      "id": 1077,
+      "nombre": "string",
+      "tipo": "string",
+      "fecha_inicio": "1977-03-04",
+      "fecha_fin": "1966-09-15",
+      "descripcion": "string",
+      "imagen": "string",
+      "institucion": "string",
+      "lugar_institucion": "string"
+    }
+examples: ./.resources/-formacion-3.resources/examples
+order: 4000

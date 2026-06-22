@@ -24,6 +24,7 @@ export const LenguajeForm = ({ className, lenguaje, onSaved, ...props }: Lenguaj
     const buildDefaults = (l?: ILenguajes): LenguajeFormValues => ({
         logo: l?.logo ?? "",
         nombre: l?.nombre ?? "",
+        visible: l?.visible ?? true,
     })
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<LenguajeFormValues>({

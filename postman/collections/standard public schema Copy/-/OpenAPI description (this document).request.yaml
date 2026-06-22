@@ -1,0 +1,8 @@
+$kind: http-request
+name: OpenAPI description (this document)
+url: https://wrxrnwbnbnocaiaizbnc.supabase.co/rest/v1/?apikey={{supabase_key}}
+method: GET
+queryParams:
+  apikey: "{{supabase_key}}"
+examples: ./.resources/OpenAPI description (this document).resources/examples
+order: 1000

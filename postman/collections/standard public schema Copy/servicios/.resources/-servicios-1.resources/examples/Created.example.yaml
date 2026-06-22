@@ -1,0 +1,32 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/servicios?select=string"
+  method: POST
+  headers:
+    - key: Prefer
+      value: resolution=merge-duplicates
+      description: Preference
+    - key: Content-Type
+      value: application/json
+  queryParams:
+    - key: select
+      value: string
+      description: Filtering Columns
+  body:
+    type: json
+    content: |-
+      {
+        "id": 9606,
+        "nombre": "string",
+        "imagen": "string",
+        "tipo": "string",
+        "descripcion": "string",
+        "precio": 1561.521796148946
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,46 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/servicios?id=string&imagen=string&nombre=string&tipo=string&descripcion=string&precio=string&select=string&order=string&offset=string&limit=string"
+  method: GET
+  headers:
+    - key: Range
+      value: string
+      description: Limiting and Pagination
+    - key: Range-Unit
+      value: items
+      description: Limiting and Pagination
+    - key: Prefer
+      value: count=none
+      description: Preference
+  queryParams:
+    - key: id
+      value: string
+    - key: imagen
+      value: string
+    - key: nombre
+      value: string
+    - key: tipo
+      value: string
+    - key: descripcion
+      value: string
+    - key: precio
+      value: string
+    - key: select
+      value: string
+      description: Filtering Columns
+    - key: order
+      value: string
+      description: Ordering
+    - key: offset
+      value: string
+      description: Limiting and Pagination
+    - key: limit
+      value: string
+      description: Limiting and Pagination
+response:
+  statusCode: 206
+  statusText: Partial Content
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,5 +1,6 @@
 import type { ICursos } from "@/model/interfaces/formacion/ICursos";
 import { Link } from "react-router-dom";
+import { BadgeEnCurso } from "@/components/shared/BadgeEnCurso";
 
 interface Props {
     curso: ICursos;
@@ -28,6 +29,9 @@ export const CursoCard = ({ curso }: Props) => {
             // CAMBIO 1: Quitamos 'h-full' para que no se estire y reducimos un poco el padding (de p-5 a p-4 md:p-5)
             className="group flex flex-col bg-card rounded-2xl p-4 md:p-5 border border-border shadow-[0_24px_48px_rgba(0,0,0,0.12)] hover:border-primary/20 hover:-translate-y-2 transition-all duration-500"
         >
+            {/* Badge "En curso" (siempre visible en cursos) */}
+            <BadgeEnCurso className="mb-3" />
+
             {/* Contenedor de la Imagen (Margen reducido de mb-6 a mb-4) */}
             <div className="w-full rounded-xl overflow-hidden bg-background mb-4 relative border border-border">
                 <img
@@ -73,17 +77,6 @@ export const CursoCard = ({ curso }: Props) => {
                 ))}
             </div>
 
-            {/* Footer: Ver Certificado (CAMBIO 3: Quitamos 'mt-auto') */}
-            <div className="pt-4 border-t border-border flex justify-center items-center">
-                <div className="flex items-center gap-2 text-primary text-xs font-bold tracking-[0.1em] transition-transform duration-300 group-hover:scale-105">
-                    <span>Ver certificado</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
-                        <path d="M11 13l9 -9" />
-                        <path d="M15 4h5v5" />
-                    </svg>
-                </div>
-            </div>
         </Link>
     );
 };

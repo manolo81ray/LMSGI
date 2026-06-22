@@ -1,0 +1,23 @@
+$kind: http-request
+name: /lenguajes
+url: "{{baseUrl}}/lenguajes?select=string"
+method: POST
+headers:
+  - key: Prefer
+    value: resolution=merge-duplicates
+    description: Preference
+  - key: Content-Type
+    value: application/json
+queryParams:
+  - key: select
+    value: string
+    description: Filtering Columns
+body:
+  type: json
+  content: |-
+    {
+      "id_lenguaje": 4381,
+      "logo": "string"
+    }
+examples: ./.resources/-lenguajes-1.resources/examples
+order: 2000

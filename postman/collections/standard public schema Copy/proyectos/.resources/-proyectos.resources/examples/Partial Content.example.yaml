@@ -1,0 +1,50 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/proyectos?id=string&titulo=string&url=string&fecha_creacion=string&tecnologia=string&etiquetas=string&descripcion=string&img_web=string&select=string&order=string&offset=string&limit=string"
+  method: GET
+  headers:
+    - key: Range
+      value: string
+      description: Limiting and Pagination
+    - key: Range-Unit
+      value: items
+      description: Limiting and Pagination
+    - key: Prefer
+      value: count=none
+      description: Preference
+  queryParams:
+    - key: id
+      value: string
+    - key: titulo
+      value: string
+    - key: url
+      value: string
+    - key: fecha_creacion
+      value: string
+    - key: tecnologia
+      value: string
+    - key: etiquetas
+      value: string
+    - key: descripcion
+      value: string
+    - key: img_web
+      value: string
+    - key: select
+      value: string
+      description: Filtering Columns
+    - key: order
+      value: string
+      description: Ordering
+    - key: offset
+      value: string
+      description: Limiting and Pagination
+    - key: limit
+      value: string
+      description: Limiting and Pagination
+response:
+  statusCode: 206
+  statusText: Partial Content
+  body:
+    type: text
+    content: ""
+order: 2000

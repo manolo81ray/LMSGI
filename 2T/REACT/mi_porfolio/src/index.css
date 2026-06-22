@@ -9,6 +9,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Reduce toda la web al 80% para que, con el navegador del usuario al 100%
+   (lo habitual), se vea como antes se veía al 80% de zoom. Equivale a un zoom
+   de navegador del 80% aplicado a todas las páginas. Se aplica en body porque
+   Chrome ignora `zoom` en el elemento raíz <html>. */
+body {
+  zoom: 0.8;
+}
+
 /* Oculta la barra de scroll horizontal del menú en móvil
    manteniendo el desplazamiento por swipe disponible. */
 .no-scrollbar {
@@ -26,6 +34,11 @@ html {
 @media (min-width: 1280px) {
   .escala-grande {
     zoom: 1.4;
+  }
+  /* El panel de administración usa su propia escala (contenido más pequeño)
+     sin afectar a las páginas públicas que comparten .escala-grande. */
+  .escala-admin {
+    zoom: 1.1;
   }
 }
 

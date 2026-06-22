@@ -1,0 +1,24 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/proyectos?id=string&titulo=string&url=string&fecha_creacion=string&tecnologia=string&etiquetas=string&descripcion=string&img_web=string"
+  method: DELETE
+  headers:
+    - key: Prefer
+      value: return=none
+      description: Preference
+  queryParams:
+    id: string
+    titulo: string
+    url: string
+    fecha_creacion: string
+    tecnologia: string
+    etiquetas: string
+    descripcion: string
+    img_web: string
+response:
+  statusCode: 204
+  statusText: No Content
+  body:
+    type: text
+    content: ""
+order: 1000

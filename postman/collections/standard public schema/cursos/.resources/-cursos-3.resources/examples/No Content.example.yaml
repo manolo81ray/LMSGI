@@ -1,0 +1,36 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/cursos?id_curso=string&created_at=string&titulo=string&catego\
+    ria=string&academia=string&precio=string"
+  method: PATCH
+  headers:
+    - key: Prefer
+      value: return=none
+      description: Preference
+    - key: Content-Type
+      value: application/json
+  queryParams:
+    id_curso: string
+    created_at: string
+    titulo: string
+    categoria: string
+    academia: string
+    precio: string
+  body:
+    type: json
+    content: |-
+      {
+        "id_curso": "gen_random_uuid()",
+        "created_at": "now()",
+        "titulo": "string",
+        "categoria": "string",
+        "academia": "string",
+        "precio": 3755
+      }
+response:
+  statusCode: 204
+  statusText: No Content
+  body:
+    type: text
+    content: ""
+order: 1000

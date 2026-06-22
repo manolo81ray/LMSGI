@@ -1,0 +1,82 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/proyectos?id=string&titulo=string&url=string&fecha_creacion=string&tecnologia=string&etiquetas=string&descripcion=string&img_web=string&select=string&order=string&offset=string&limit=string"
+  method: GET
+  headers:
+    - key: Range
+      value: string
+      description: Limiting and Pagination
+    - key: Range-Unit
+      value: items
+      description: Limiting and Pagination
+    - key: Prefer
+      value: count=none
+      description: Preference
+    - key: Accept
+      value: application/json
+  queryParams:
+    - key: id
+      value: string
+    - key: titulo
+      value: string
+    - key: url
+      value: string
+    - key: fecha_creacion
+      value: string
+    - key: tecnologia
+      value: string
+    - key: etiquetas
+      value: string
+    - key: descripcion
+      value: string
+    - key: img_web
+      value: string
+    - key: select
+      value: string
+      description: Filtering Columns
+    - key: order
+      value: string
+      description: Ordering
+    - key: offset
+      value: string
+      description: Limiting and Pagination
+    - key: limit
+      value: string
+      description: Limiting and Pagination
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": 3559,
+          "titulo": "string",
+          "url": "string",
+          "fecha_creacion": "1992-05-26",
+          "tecnologia": "string",
+          "etiquetas": [
+            "string",
+            "string"
+          ],
+          "descripcion": "string",
+          "img_web": "string"
+        },
+        {
+          "id": 1120,
+          "titulo": "string",
+          "url": "string",
+          "fecha_creacion": "1963-07-19",
+          "tecnologia": "string",
+          "etiquetas": [
+            "string",
+            "string"
+          ],
+          "descripcion": "string",
+          "img_web": "string"
+        }
+      ]
+order: 1000

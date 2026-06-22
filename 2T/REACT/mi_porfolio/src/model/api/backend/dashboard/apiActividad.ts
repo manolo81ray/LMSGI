@@ -50,7 +50,7 @@ export const getActividadReciente = async (limite = LIMITE): Promise<IActividadI
             // Fusionamos y quitamos duplicados por clave primaria.
             const porId = new Map<unknown, Record<string, unknown>>()
             for (const row of [...(porAlta.data ?? []), ...(porCambio.data ?? [])]) {
-                porId.set((row as Record<string, unknown>)[f.pk], row as Record<string, unknown>)
+                porId.set((row as unknown as Record<string, unknown>)[f.pk], row as unknown as Record<string, unknown>)
             }
 
             return [...porId.values()].map((row) => {

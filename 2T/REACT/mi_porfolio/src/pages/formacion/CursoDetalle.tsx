@@ -10,6 +10,7 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { BadgeEnCurso } from "@/components/shared/BadgeEnCurso";
 
 export const CursoDetalle = () => {
     const { id } = useParams();
@@ -126,6 +127,9 @@ export const CursoDetalle = () => {
                     {/* COLUMNA PRINCIPAL */}
                     <div className="flex flex-col">
 
+                        {/* Badge "En curso" */}
+                        <BadgeEnCurso className="mb-4" />
+
                         {/* Título con degradado dorado */}
                         <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight bg-gradient-to-br from-[#ffe088] via-[#e9c349] to-[#9d7d00] bg-clip-text text-transparent">
                             {curso.titulo}
@@ -224,20 +228,6 @@ export const CursoDetalle = () => {
                                 </div>
                             )}
 
-                            {/* Botón Ver certificado original */}
-                            {curso.imagen && (
-                                <a
-                                    href={curso.imagen}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-2 w-full bg-gradient-to-br from-primary to-[#9d7d00] text-primary-foreground font-bold text-sm px-6 py-4 rounded-md shadow-[0_12px_24px_rgba(233,195,73,0.2)] hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-2.5"
-                                >
-                                    Ver certificado original
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M7 17L17 7M7 7h10v10" />
-                                    </svg>
-                                </a>
-                            )}
                         </div>
                     </aside>
                 </div>

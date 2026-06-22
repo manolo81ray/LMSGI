@@ -17,16 +17,17 @@ export function BackLayout() {
         <div className="admin-theme dark">
             <TooltipProvider>
                 <SidebarProvider
+                    className="h-[calc(100svh/0.8)] min-h-[calc(100svh/0.8)] overflow-hidden"
                     style={{
-                        "--sidebar-width": "280px",
+                        "--sidebar-width": "320px",
                         "--header-height": "calc(var(--spacing) * 16)",
                     } as React.CSSProperties}
                 >
                     <AppSidebar variant="inset" />
-                    <SidebarInset>
+                    <SidebarInset className="overflow-hidden">
                         <SiteHeader />
-                        <div className="flex flex-1 flex-col">
-                            <div className="escala-grande mx-auto w-full max-w-360 flex-1 px-4 py-6 md:px-6 lg:py-10">
+                        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+                            <div className="escala-admin mx-auto flex min-h-0 w-full max-w-360 flex-1 flex-col px-4 py-6 md:px-6 lg:py-10">
                                 <Outlet />
                             </div>
                         </div>

@@ -1,0 +1,52 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/lenguajes?id_lenguaje=string&logo=string&select=string&order=string&offset=string&limit=string"
+  method: GET
+  headers:
+    - key: Range
+      value: string
+      description: Limiting and Pagination
+    - key: Range-Unit
+      value: items
+      description: Limiting and Pagination
+    - key: Prefer
+      value: count=none
+      description: Preference
+    - key: Accept
+      value: application/json
+  queryParams:
+    - key: id_lenguaje
+      value: string
+    - key: logo
+      value: string
+    - key: select
+      value: string
+      description: Filtering Columns
+    - key: order
+      value: string
+      description: Ordering
+    - key: offset
+      value: string
+      description: Limiting and Pagination
+    - key: limit
+      value: string
+      description: Limiting and Pagination
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id_lenguaje": 3671,
+          "logo": "string"
+        },
+        {
+          "id_lenguaje": 6620,
+          "logo": "string"
+        }
+      ]
+order: 1000

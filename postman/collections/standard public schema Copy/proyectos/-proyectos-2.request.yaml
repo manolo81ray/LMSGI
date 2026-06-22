@@ -1,0 +1,19 @@
+$kind: http-request
+name: /proyectos
+url: "{{baseUrl}}/proyectos?id=string&titulo=string&url=string&fecha_creacion=string&tecnologia=string&etiquetas=string&descripcion=string&img_web=string"
+method: DELETE
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+queryParams:
+  id: string
+  titulo: string
+  url: string
+  fecha_creacion: string
+  tecnologia: string
+  etiquetas: string
+  descripcion: string
+  img_web: string
+examples: ./.resources/-proyectos-2.resources/examples
+order: 3000

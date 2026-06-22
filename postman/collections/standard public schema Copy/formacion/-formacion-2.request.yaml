@@ -1,0 +1,20 @@
+$kind: http-request
+name: /formacion
+url: "{{baseUrl}}/formacion?id=string&tipo=string&fecha_inicio=string&fecha_fin=string&nombre=string&descripcion=string&imagen=string&institucion=string&lugar_institucion=string"
+method: DELETE
+headers:
+  - key: Prefer
+    value: return=none
+    description: Preference
+queryParams:
+  id: string
+  tipo: string
+  fecha_inicio: string
+  fecha_fin: string
+  nombre: string
+  descripcion: string
+  imagen: string
+  institucion: string
+  lugar_institucion: string
+examples: ./.resources/-formacion-2.resources/examples
+order: 3000

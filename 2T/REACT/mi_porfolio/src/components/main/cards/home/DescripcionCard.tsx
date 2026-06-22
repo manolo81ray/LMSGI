@@ -36,7 +36,7 @@ export const DescripcionCard = ({ descripcion }: Props) => {
                     </p>
 
                     {/* Botones de Acción */}
-                    <div className="flex flex-col sm:flex-row items-center gap-8 xl:gap-10">
+                    <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 xl:gap-10">
                         {/* Primary Action (Invertido para fondo claro según tu imagen) */}
                         <a
                             href={descripcion.curriculum_url}
@@ -56,7 +56,7 @@ export const DescripcionCard = ({ descripcion }: Props) => {
                 </div>
 
                 {/* ---------------- DERECHA: Imagen con Asimetría ---------------- */}
-                <div className="col-span-1 lg:col-span-5 lg:col-start-8 relative mt-12 lg:mt-0 w-full max-w- lg:max-w-none mx-auto lg:ml-auto lg:mr-0">
+                <div className="col-span-1 lg:col-span-5 lg:col-start-8 relative mt-2 lg:mt-0 w-full max-w-[420px] lg:max-w-none mx-auto lg:ml-auto lg:mr-0">
 
                     {/* Ghost Border (Marco fantasma desfasado hacia arriba a la derecha) */}
                     <div className="absolute top-7.5 right-7.5 w-full h-full border-2 border-[#e9c349]/20 rounded-sm z-0 hidden md:block"></div>
@@ -67,7 +67,7 @@ export const DescripcionCard = ({ descripcion }: Props) => {
                             <img 
                                 src={descripcion.foto} 
                                 alt={descripcion.nombre}
-                                className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.5s] ease-out"
+                                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[1.5s] ease-out"
                             />
                         ) : (
                             // Fallback si no hay foto
@@ -77,7 +77,7 @@ export const DescripcionCard = ({ descripcion }: Props) => {
                         )}
                         
                         {/* Sutil viñeteado interior para darle profundidad */}
-                        <div className="absolute inset-0 bg-linear-to-tr from-[#0b1326]/40 via-transparent to-transparent opacity-60 mix-blend-multiply"></div>
+                        <div className="absolute inset-0 bg-linear-to-tr from-[#0b1326]/20 via-transparent to-transparent opacity-30"></div>
                     </div>
                 </div>
 

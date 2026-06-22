@@ -43,7 +43,7 @@ export const Footer = () => {
     const año = new Date().getFullYear();
 
     return (
-        <div className="w-full bg-linear-to-br from-[#0b1326] via-[#0d1932] to-[#101d3c] text-foreground border-t-2 border-primary/70">
+        <div className="w-full bg-linear-to-br from-[#0a0f1d] via-[#0c1226] to-[#0f1730] text-foreground border-t-2 border-primary/70">
             <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-24 py-14 xl:py-21">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-x-16 xl:gap-x-24 xl:gap-y-12">
 

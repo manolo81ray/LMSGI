@@ -19,5 +19,6 @@ export const getLenguajes = async () : Promise<ILenguajes[]> => {
         return []
     }
 
-    return data as ILenguajes[]
+    // La columna en la BD se llama "Nombre" (mayuscula); la normalizamos a "nombre"
+    return (data ?? []).map(({ Nombre, ...rest }) => ({ ...rest, nombre: Nombre })) as ILenguajes[]
 }
