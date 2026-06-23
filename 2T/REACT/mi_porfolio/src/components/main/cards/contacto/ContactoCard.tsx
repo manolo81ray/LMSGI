@@ -29,7 +29,7 @@ export const ContactoCard = ({ contacto }: Props) => {
                         </h2>
 
                         {/*Mapa Interactivo*/}
-                        <div className="relative w-full h-[450px] md:h-[600px] xl:h-[760px] rounded-2xl overflow-hidden border border-primary/30 shadow-[0_0_60px_rgba(233,195,73,0.12)]">
+                        <div className="relative w-full h-112.5 md:h-150 xl:h-190 rounded-2xl overflow-hidden border border-primary/30 shadow-[0_0_60px_rgba(233,195,73,0.12)]">
 
                             {url ? (
                                 <iframe
@@ -46,7 +46,7 @@ export const ContactoCard = ({ contacto }: Props) => {
 
                             {/* Tarjeta de informacion de ubicacion: caption fijo sobre el mapa */}
                             <div className="pointer-events-none absolute top-6 right-6 md:top-8 md:right-20 flex items-center gap-4 bg-[#0b1326]/80 backdrop-blur-md rounded-xl px-6 py-4 border border-[#e9c349]/20 shadow-2xl">
-                                <div className="flex-shrink-0">
+                                <div className="shrink-0">
                                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#e9c349"/>
                                     </svg>

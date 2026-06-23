@@ -10,7 +10,7 @@ export const FormacionesCard = ({ formaciones }: Props) => {
     return (
         <>
             <section className="bg-[#131b2e] py-15 xl:py-24 px-6 lg:px-24 xl:px-32 min-h-screen">
-                <div className="max-w-screen-xl xl:max-w-screen-2xl mx-auto">
+                <div className="max-w-7xl xl:max-w-screen-2xl mx-auto">
 
                     {/* Encabezado Editorial con Línea Fantasma (Ghost Border) */}
                     <header className="mb-10 xl:mb-16">
@@ -23,7 +23,7 @@ export const FormacionesCard = ({ formaciones }: Props) => {
                                 Titulaciones Académicas
                             </h1>
                             {/* Línea horizontal divisoria sutil que rellena el espacio restante */}
-                            <div className="hidden md:block h-[1px] bg-border mt-4"></div>
+                            <div className="hidden md:block h-px bg-border mt-4"></div>
                         </div>
                     </header>
 

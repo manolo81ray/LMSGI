@@ -9,7 +9,7 @@ export const CursosCard = ({ cursos }: Props) => {
 
     return (
         <section className="bg-background py-16 px-6 lg:px-24 min-h-screen">
-            <div className="max-w-screen-xl mx-auto">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Encabezado Editorial (Centrado según la imagen) */}
                 <header className="mb-16 md:mb-16 text-center flex flex-col items-center">

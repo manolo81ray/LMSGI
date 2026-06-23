@@ -78,11 +78,11 @@ export const FormacionDetalle = () => {
         );
     }
 
-    const enCurso = !formacion.fecha_fin;
+    const enCurso = !formacion.fecha_fin || formacion.nombre.toLowerCase() === TITULACION_EN_CURSO;
 
     return (
         <article className="escala-grande bg-background min-h-screen text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12 pt-8 md:pt-12 pb-24">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 md:pt-12 pb-24">
 
                 {/* Migas de pan */}
                 <Breadcrumb className="mb-10">
@@ -111,7 +111,7 @@ export const FormacionDetalle = () => {
                         {/* Texto */}
                         <div className="max-w-4xl">
                             {/* Badge de estado (En curso / Completado), controlado desde el admin */}
-                            <BadgeEnCurso className="mb-4" variante={formacion.en_curso ? "en-curso" : "completado"} />
+                            <BadgeEnCurso className="mb-4" variante={enCurso ? "en-curso" : "completado"} />
 
                             <div className="flex flex-wrap items-center gap-4 mb-6">
                                 <h1 className="font-serif text-4xl md:text-6xl text-foreground leading-[1.05] tracking-tight">
@@ -127,13 +127,13 @@ export const FormacionDetalle = () => {
                         </div>
 
                         {/* Imagen destacada (arriba a la derecha) */}
-                        <div className="relative w-full h-full min-h-[280px] lg:min-h-0 rounded-xl overflow-hidden bg-card border border-border shadow-[0_24px_48px_rgba(0,0,0,0.3)] group">
+                        <div className="relative w-full h-full min-h-70 lg:min-h-0 rounded-xl overflow-hidden bg-card border border-border shadow-[0_24px_48px_rgba(0,0,0,0.3)] group">
                             <img
                                 src={formacion.imagen}
                                 alt={formacion.institucion}
                                 className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0b1326]/70 via-transparent to-transparent pointer-events-none"></div>
+                            <div className="absolute inset-0 bg-linear-to-t from-[#0b1326]/70 via-transparent to-transparent pointer-events-none"></div>
                         </div>
                     </div>
                 </header>
@@ -162,11 +162,11 @@ export const FormacionDetalle = () => {
 
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-3 text-muted-foreground text-base leading-[1.6]">
-                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
                                     Fecha: <span className="text-foreground font-medium">&nbsp;01/06/2025</span>.
                                 </li>
                                 <li className="flex items-start gap-3 text-muted-foreground text-base leading-[1.6]">
-                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
                                     Modalidad: <span className="text-foreground font-medium">&nbsp;{formacion.Modalidad}</span>.
                                 </li>
                             </ul>

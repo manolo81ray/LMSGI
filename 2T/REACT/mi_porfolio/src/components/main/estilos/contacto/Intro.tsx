@@ -21,7 +21,7 @@ export const Intro = () => {
                         </h1>
 
                         {/* Descripción */}
-                        <p className="text-muted-foreground text-base xl:text-xl leading-relaxed max-w-[400px] xl:max-w-[520px]">
+                        <p className="text-muted-foreground text-base xl:text-xl leading-relaxed max-w-100px xl:max-w-130">
                             No dudes en contactarme para encontrar la solución tecnológica que mejor se adapte a ti.
                             Ya sea para crear una web de alto impacto, mantenimiento, bases de datos o soporte técnico, estoy aquí para ayudarte.
                             ¡O simplemente pásate a saludar, estaré encantado de charlar contigo!
@@ -29,7 +29,7 @@ export const Intro = () => {
                     </article>
 
                     {/* Article 2 — Imagen */}
-                    <article className="rounded-[1.25rem] overflow-hidden h-full bg-card border border-1 border-border">
+                    <article className="rounded-[1.25rem] overflow-hidden h-full bg-card border border-border">
                         <img
                             src="https://i.pinimg.com/736x/1f/1a/21/1f1a2162ee95f61a276b54fa33d5ead9.jpg"
                             alt="Contacto"

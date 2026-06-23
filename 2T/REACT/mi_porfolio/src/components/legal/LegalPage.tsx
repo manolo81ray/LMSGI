@@ -22,18 +22,18 @@ export const LegalPage = ({ titulo, actualizacion, children }: Props) => {
     }, []);
 
     return (
-        <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#0b1326] via-[#0d1932] to-[#101d3c] text-foreground font-sans">
+        <main className="relative min-h-screen overflow-hidden bg-linear-to-b from-[#0b1326] via-[#0d1932] to-[#101d3c] text-foreground font-sans">
 
             {/* Capa decorativa de fondo: halos dorados y azulados muy sutiles */}
             <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
                 {/* Halo dorado superior */}
-                <div className="absolute -top-40 left-1/2 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+                <div className="absolute -top-40 left-1/2 h-120 w-120 -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
                 {/* Halo azulado a la derecha */}
-                <div className="absolute top-1/3 -right-32 h-[360px] w-[360px] rounded-full bg-sky-400/10 blur-[120px]" />
+                <div className="absolute top-1/3 -right-32 h-90 w-90 rounded-full bg-sky-400/10 blur-[120px]" />
                 {/* Resplandor inferior */}
-                <div className="absolute -bottom-40 -left-24 h-[400px] w-[400px] rounded-full bg-primary/5 blur-[120px]" />
+                <div className="absolute -bottom-40 -left-24 h-100 w-100 rounded-full bg-primary/5 blur-[120px]" />
                 {/* Rejilla tenue para dar textura */}
-                <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(to_right,#e4e7f0_1px,transparent_1px),linear-gradient(to_bottom,#e4e7f0_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+                <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#e4e7f0_1px,transparent_1px),linear-gradient(to_bottom,#e4e7f0_1px,transparent_1px)] [bg-size:48px_48px] mask-[radial-gradient(ellipse_at_center,black,transparent_75%)]" />
             </div>
 
             {/* 🔝 Zona superior: enlace para volver al porfolio */}
@@ -58,7 +58,7 @@ export const LegalPage = ({ titulo, actualizacion, children }: Props) => {
                     {actualizacion}
                 </p>
                 {/* Línea fina dorada que separa la cabecera del contenido */}
-                <div className="mt-6 h-px w-full bg-gradient-to-r from-primary via-primary/40 to-transparent" />
+                <div className="mt-6 h-px w-full bg-linear-to-r from-primary via-primary/40 to-transparent" />
             </header>
 
             {/* 📝 Cuerpo central en columna limpia */}

@@ -28,7 +28,7 @@ export const ServicioCard = ({ servicio }: Props) => {
                 <img
                     src={servicio.imagen}
                     alt={servicio.nombre}
-                    className="w-full h-full object-cover opacity-100 transform-gpu will-change-transform scale-[1.01] group-hover:scale-110 transition-transform duration-700 ease-out [backface-visibility:hidden]"
+                    className="w-full h-full object-cover opacity-100 transform-gpu will-change-transform scale-[1.01] group-hover:scale-110 transition-transform duration-700 ease-out backface-hidden"
                 />
 
                 {/* Etiqueta superior derecha */}
@@ -38,7 +38,7 @@ export const ServicioCard = ({ servicio }: Props) => {
             </div>
 
             {/* Contenido Editorial */}
-            <div className="flex flex-col flex-grow p-8 pt-6 xl:p-11 xl:pt-9">
+            <div className="flex flex-col grow p-8 pt-6 xl:p-11 xl:pt-9">
 
                 {/* Título Principal */}
                 <h3 className="font-serif text-3xl xl:text-4xl text-foreground mb-4 xl:mb-6 tracking-tight group-hover:text-primary transition-colors">
@@ -52,7 +52,7 @@ export const ServicioCard = ({ servicio }: Props) => {
 
                 {/* Precio (Estilizado como botón, pero ya no es un elemento interactivo real) */}
                 <div className="mt-auto flex items-center justify-center ">
-                    <span className="inline-block bg-gradient-to-br from-primary to-[#9d7d00] text-primary-foreground font-sans font-semibold
+                    <span className="inline-block bg-linear-to-br from-primary to-[#9d7d00] text-primary-foreground font-sans font-semibold
                                     text-base xl:text-lg px-10 py-3 xl:px-12 xl:py-4 rounded-md shadow-lg transform transition-transform duration-300 group-hover:scale-105">
                         Desde {servicio.precio} €
                     </span>

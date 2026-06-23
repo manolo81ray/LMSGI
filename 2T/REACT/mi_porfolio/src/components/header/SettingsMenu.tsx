@@ -30,7 +30,7 @@ export const SettingsMenu = () => {
             <MenuItems
                 transition
                 anchor="bottom end"
-                className="z-50 mt-2 w-64 origin-top-right rounded-lg border border-border bg-card p-2 shadow-xl transition duration-150 ease-out focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
+                className="z-50 mt-2 w-64 origin-top-right rounded-lg border border-border bg-card p-2 shadow-xl transition duration-150 ease-out focus:outline-none data-closed:scale-95 data-closed:opacity-0"
             >
                 {/* Selector de paleta claro / oscuro */}
                 <div className="flex items-center justify-between gap-3 rounded-md px-3 py-2.5">
@@ -45,10 +45,10 @@ export const SettingsMenu = () => {
                     <Switch
                         checked={isDark}
                         onChange={toggleTheme}
-                        className="group inline-flex h-5 w-9 shrink-0 items-center rounded-full bg-muted transition-colors data-[checked]:bg-primary"
+                        className="group inline-flex h-5 w-9 shrink-0 items-center rounded-full bg-muted transition-colors data-checked:bg-primary"
                     >
                         <span className="sr-only">Cambiar a tema {isDark ? 'claro' : 'oscuro'}</span>
-                        <span className="size-3.5 translate-x-1 rounded-full bg-background transition-transform group-data-[checked]:translate-x-4" />
+                        <span className="size-3.5 translate-x-1 rounded-full bg-background transition-transform group-data-checked:translate-x-4" />
                     </Switch>
                 </div>
 
@@ -60,7 +60,7 @@ export const SettingsMenu = () => {
                         <MenuItem>
                             <Link
                                 to="/admin"
-                                className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-foreground no-underline data-[focus]:bg-muted"
+                                className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-foreground no-underline data-focus:bg-muted"
                             >
                                 <Squares2X2Icon className="size-4" aria-hidden="true" />
                                 Panel de administración
@@ -70,7 +70,7 @@ export const SettingsMenu = () => {
                             <button
                                 type="button"
                                 onClick={signOut}
-                                className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 text-left text-sm font-medium text-foreground data-[focus]:bg-muted"
+                                className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 text-left text-sm font-medium text-foreground data-focus:bg-muted"
                             >
                                 <ArrowLeftOnRectangleIcon className="size-4" aria-hidden="true" />
                                 Cerrar sesión
@@ -81,7 +81,7 @@ export const SettingsMenu = () => {
                     <MenuItem>
                         <Link
                             to="/login"
-                            className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-foreground no-underline data-[focus]:bg-muted"
+                            className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-foreground no-underline data-focus:bg-muted"
                         >
                             <ArrowRightOnRectangleIcon className="size-4" aria-hidden="true" />
                             Iniciar sesión

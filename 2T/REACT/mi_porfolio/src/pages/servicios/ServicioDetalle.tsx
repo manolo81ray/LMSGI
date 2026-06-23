@@ -108,7 +108,7 @@ export const ServicioDetalle = () => {
                         </span>
 
                         <h1 className="font-serif text-5xl md:text-7xl leading-[1.1] tracking-tight mb-8">
-                          {servicio.nombre}
+                            {servicio.nombre}
                         </h1>
 
                         <p className="text-muted-foreground text-lg leading-[1.8] font-light mb-12 max-w-lg">
@@ -121,7 +121,7 @@ export const ServicioDetalle = () => {
                             </span>
                             <Link
                                 to="/contacto"
-                                className="bg-gradient-to-br from-primary to-[#9d7d00] text-primary-foreground font-bold text-sm px-8 py-4 rounded-md shadow-[0_12px_24px_rgba(233,195,73,0.2)] hover:scale-105 transition-transform duration-300 flex items-center gap-3"
+                                className="bg-linear-to-br from-primary to-[#9d7d00] text-primary-foreground font-bold text-sm px-8 py-4 rounded-md shadow-[0_12px_24px_rgba(233,195,73,0.2)] hover:scale-105 transition-transform duration-300 flex items-center gap-3"
                             >
                                 Contactame
                                 <span>→</span>
@@ -130,7 +130,7 @@ export const ServicioDetalle = () => {
                     </div>
 
                     {/* Composición Visual con Glassmorphism */}
-                    <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-card border border-border flex items-center justify-center group shadow-[0_24px_48px_rgba(0,0,0,0.3)]">
+                    <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-card border border-border flex items-center justify-center group shadow-[0_24px_48px_rgba(0,0,0,0.3)]">
 
                         {/* 1. Imagen Real del Servicio */}
                         <img
@@ -140,7 +140,7 @@ export const ServicioDetalle = () => {
                         />
 
                         {/* 2. Filtro sutil para asegurar que la etiqueta inferior se lea bien (fijo, no depende del tema) */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1326]/80 via-transparent to-transparent pointer-events-none"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-[#0b1326]/80 via-transparent to-transparent pointer-events-none"></div>
 
                         {/* 3. Tarjeta Glassmorphism flotante: caption fijo sobre la foto (Mantenida intacta) */}
                         <div className="absolute left-6 bottom-6 bg-[#131b2e]/60 backdrop-blur-xl border border-[#e4e7f0]/10 p-5 rounded-lg flex items-center gap-4 transform transition-transform duration-700 group-hover:-translate-y-2">

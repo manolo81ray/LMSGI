@@ -57,9 +57,9 @@ export const LenguajesCard = ({ lenguajes }: Props) => {
                                 </div>
 
                                 {/* Track y Relleno de la barra (Sovereign Style) */}
-                                <div className="w-full h-[3px] bg-card rounded-full overflow-hidden">
+                                <div className="w-full h-0.75 bg-card rounded-full overflow-hidden">
                                     <div
-                                        className="h-full bg-gradient-to-r from-primary to-[#9d7d00] rounded-full relative"
+                                        className="h-full bg-linear-to-r from-primary to-[#9d7d00] rounded-full relative"
                                         style={{ width: `${skill.porcentaje}%` }}
                                     >
                                         {/* Brillo en la punta de la barra */}
@@ -107,7 +107,7 @@ export const LenguajesCard = ({ lenguajes }: Props) => {
                                     value={String(lenguaje.id_lenguaje)}
                                     className="flex justify-center mt-8"
                                 >
-                                    <Card className="w-fit max-w-[250px] xl:max-w-[360px] p-0">
+                                    <Card className="w-fit max-w-62.5 xl:max-w-90 p-0">
                                         <CardContent className="p-0">
                                             <img
                                                 src={lenguaje.logo}

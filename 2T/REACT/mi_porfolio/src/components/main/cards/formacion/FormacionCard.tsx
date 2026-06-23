@@ -46,7 +46,7 @@ export const FormacionCard = ({ formacion }: Props) => {
 
             {/* Bloque de Institución (Este mb-6 es el que dictará el espacio con la línea de abajo) */}
             <div className="flex items-center justify-center gap-4 mb-6 ">
-                <div className="w-[35%] h-29 flex-shrink-0 rounded-sm overflow-hidden bg-[#e4e7f0] border border-border">
+                <div className="w-[35%] h-29 shrink-0 rounded-sm overflow-hidden bg-[#e4e7f0] border border-border">
                     <img
                         src={formacion.imagen}
                         alt={formacion.institucion}

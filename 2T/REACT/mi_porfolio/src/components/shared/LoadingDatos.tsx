@@ -13,7 +13,7 @@ export const LoadingDatos = ({ texto = "Cargando Datos de Supabase", fullScreen 
         <div
             className={cn(
                 "flex w-full flex-row items-center justify-center gap-6",
-                fullScreen ? "min-h-screen bg-background" : "min-h-[300px]"
+                fullScreen ? "min-h-screen bg-background" : "min-h-75"
             )}
         >
             <Spinner className="size-20 text-primary" />

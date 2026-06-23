@@ -6,7 +6,7 @@ interface Props {
 
 export const LenguajeCard = ({ lenguaje }: Props) => {
     return (
-        <div className="group flex flex-col items-center justify-center bg-card rounded-xl aspect-[4/3] sm:aspect-square p-2 md:p-3 border border-border shadow-[0_24px_48px_rgba(0,0,0,0.12)] hover:border-primary/20 hover:-translate-y-1 transition-all duration-500 relative">
+        <div className="group flex flex-col items-center justify-center bg-card rounded-xl aspect-4/3 sm:aspect-square p-2 md:p-3 border border-border shadow-[0_24px_48px_rgba(0,0,0,0.12)] hover:border-primary/20 hover:-translate-y-1 transition-all duration-500 relative">
 
             {/* Contenedor del Logo gigante (Ocupa aprox el 60% del ancho disponible) */}
             {/* Hemos quitado márgenes inferiores rígidos para centrarlo mejor si no hay texto */}

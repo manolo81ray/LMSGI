@@ -43,7 +43,7 @@ export const tituloDe = async (tipo: TipoActividad, id: number): Promise<string>
     const f = FUENTES[tipo]
     const { data, error } = await supabase.from(f.tabla).select(f.tituloCol).eq(f.pk, id).single()
     if (error) { console.error(error); return "(sin título)" }
-    return ((data as Record<string, unknown> | null)?.[f.tituloCol] as string) ?? "(sin título)"
+    return ((data as unknown as Record<string, unknown>)?.[f.tituloCol] as string) ?? "(sin título)"
 }
 
 // Devuelve los últimos movimientos registrados, ya ordenados por la BD.
@@ -57,7 +57,7 @@ export const getActividadReciente = async (limite = LIMITE): Promise<IActividadI
     if (error) { console.error(error); return [] }
 
     return (data ?? []).map((row) => {
-        const r = row as Record<string, unknown>
+        const r = row as unknown as Record<string, unknown>
         const tipo = r.tipo as TipoActividad
         return {
             id: r.id as number,

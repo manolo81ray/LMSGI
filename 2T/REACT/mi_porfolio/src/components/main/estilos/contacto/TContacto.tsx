@@ -123,7 +123,7 @@
                         <button
                             id="e_gmail"
                             disabled={!aceptaPrivacidad}
-                            className="px-8 py-4 xl:px-10 xl:py-5 bg-gradient-to-br from-primary to-[#9d7d00] text-primary-foreground font-bold text-lg xl:text-xl rounded-md shadow-2xl hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+                            className="px-8 py-4 xl:px-10 xl:py-5 bg-linear-to-br from-primary to-[#9d7d00] text-primary-foreground font-bold text-lg xl:text-xl rounded-md shadow-2xl hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
                         >
                             Enviar a Gmail
                         </button>

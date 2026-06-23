@@ -85,7 +85,7 @@ export const ProyectoDetalle = () => {
 
     return (
         <article className="escala-grande bg-background min-h-screen text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12 pt-8 md:pt-12 pb-24">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 md:pt-12 pb-24">
 
                 {/* Migas de pan */}
                 <Breadcrumb className="mb-10">
@@ -128,13 +128,13 @@ export const ProyectoDetalle = () => {
                     <div className="flex flex-col gap-8">
 
                         {/* Imagen destacada */}
-                        <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-card border border-border shadow-[0_24px_48px_rgba(0,0,0,0.3)] group">
+                        <div className="relative w-full aspect-16/10 rounded-xl overflow-hidden bg-card border border-border shadow-[0_24px_48px_rgba(0,0,0,0.3)] group">
                             <img
                                 src={proyecto.img_web}
                                 alt={proyecto.titulo}
                                 className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0b1326]/70 via-transparent to-transparent pointer-events-none"></div>
+                            <div className="absolute inset-0 bg-linear-to-t from-[#0b1326]/70 via-transparent to-transparent pointer-events-none"></div>
                         </div>
 
                         {/* Sobre el proyecto */}
@@ -215,7 +215,7 @@ export const ProyectoDetalle = () => {
                                     href={proyecto.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-8 w-full bg-gradient-to-br from-primary to-[#9d7d00] text-primary-foreground font-bold text-sm px-6 py-4 rounded-md shadow-[0_12px_24px_rgba(233,195,73,0.2)] hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-2.5"
+                                    className="mt-8 w-full bg-linear-to-br from-primary to-[#9d7d00] text-primary-foreground font-bold text-sm px-6 py-4 rounded-md shadow-[0_12px_24px_rgba(233,195,73,0.2)] hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-2.5"
                                 >
                                     Visitar sitio web
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

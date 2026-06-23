@@ -98,7 +98,7 @@ export const CursoDetalle = () => {
 
     return (
         <article className="escala-grande bg-background min-h-screen text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
-            <div className="max-w-screen-xl mx-auto px-5 sm:px-6 lg:px-12 pt-8 md:pt-12 pb-20 md:pb-24">
+            <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-8 md:pt-12 pb-20 md:pb-24">
 
                 {/* Migas de pan */}
                 <Breadcrumb className="mb-8 md:mb-12">
@@ -131,7 +131,7 @@ export const CursoDetalle = () => {
                         <BadgeEnCurso className="mb-4" variante={curso.en_curso ? "en-curso" : "completado"} />
 
                         {/* Título con degradado dorado */}
-                        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight bg-gradient-to-br from-[#ffe088] via-[#e9c349] to-[#9d7d00] bg-clip-text text-transparent">
+                        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight bg-linear-to-br from-[#ffe088] via-[#e9c349] to-[#9d7d00] bg-clip-text text-transparent">
                             {curso.titulo}
                         </h1>
 
