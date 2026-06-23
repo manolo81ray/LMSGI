@@ -18,11 +18,3 @@ updates:
       - "dependencies"
     commit-message:
       prefix: "chore(deps)"
-
-  # Mantiene al día las propias GitHub Actions (si añades workflows)
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    labels:
-      - "dependencies"

@@ -1,0 +1,17 @@
+# Configuración de CodeQL: analiza SOLO el porfolio y SOLO seguridad.
+# Evita el ruido de otros proyectos del monorepo y de chequeos de calidad
+# (p.ej. "variable sin usar"), que no son vulnerabilidades.
+name: "CodeQL - solo mi_porfolio (seguridad)"
+
+# Consultas centradas en seguridad (sin el set de "quality")
+queries:
+  - uses: security-extended
+
+# Limita el análisis al código fuente del porfolio
+paths:
+  - "2T/REACT/mi_porfolio/src"
+
+# Ignora dependencias y artefactos de build
+paths-ignore:
+  - "**/node_modules"
+  - "**/dist"

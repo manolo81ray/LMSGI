@@ -34,8 +34,8 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
-          # Consultas de seguridad + calidad (más cobertura que el set por defecto)
-          queries: security-and-quality
+          # Limita el analisis al porfolio y a consultas de seguridad
+          config-file: ./.github/codeql/codeql-config.yml
 
       - name: Analizar
         uses: github/codeql-action/analyze@v3
