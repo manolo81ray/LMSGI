@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { EyeIcon, EyeOffIcon, PencilIcon, Trash2Icon, TriangleAlertIcon } from "lucide-react"
+import { CheckCircle2Icon, EyeIcon, EyeOffIcon, LoaderIcon, PencilIcon, Trash2Icon, TriangleAlertIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 import {
@@ -19,12 +19,13 @@ interface CursosTableProps {
     onDelete: (curso: ICursos) => void
     onHide: (id: number) => void
     onShow: (id: number) => void
+    onToggleEnCurso: (id: number, enCurso: boolean) => void
 }
 
 const formatPrecio = (precio: number) =>
     new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(precio)
 
-export const CursosTable = ({ cursos, loading, onEdit, onDelete, onHide, onShow }: CursosTableProps) => {
+export const CursosTable = ({ cursos, loading, onEdit, onDelete, onHide, onShow, onToggleEnCurso }: CursosTableProps) => {
     const [toHide, setToHide] = useState<ICursos | undefined>(undefined)
 
     if (loading) return <LoadingDatos texto="Cargando cursos..." fullScreen={false} />
@@ -62,6 +63,10 @@ export const CursosTable = ({ cursos, loading, onEdit, onDelete, onHide, onShow 
                                 <TableCell className="py-3 text-foreground">{formatPrecio(curso.precio)}</TableCell>
                                 <TableCell className="py-3 text-right">
                                     <div className="flex items-center justify-end gap-3">
+                                        {curso.en_curso
+                                            ? <Button variant="ghost" size="icon-sm" onClick={() => onToggleEnCurso(curso.id, false)} aria-label="Marcar como completado"><LoaderIcon className="text-sky-400" /></Button>
+                                            : <Button variant="ghost" size="icon-sm" onClick={() => onToggleEnCurso(curso.id, true)} aria-label="Marcar como en curso"><CheckCircle2Icon className="text-emerald-400" /></Button>
+                                        }
                                         {curso.visible
                                             ? <Button variant="ghost" size="icon-sm" onClick={() => setToHide(curso)} aria-label="Ocultar en web"><EyeIcon className="text-emerald-400" /></Button>
                                             : <Button variant="ghost" size="icon-sm" onClick={() => onShow(curso.id)} aria-label="Mostrar en web"><EyeOffIcon className="text-muted-foreground" /></Button>
@@ -90,6 +95,10 @@ export const CursosTable = ({ cursos, loading, onEdit, onDelete, onHide, onShow 
                             {curso.etiquetas?.map((e) => <Badge key={e} variant="outline">{e}</Badge>)}
                         </div>
                         <div className="mt-1 flex items-center gap-3 border-t border-border pt-3">
+                            {curso.en_curso
+                                ? <Button variant="ghost" size="icon-sm" onClick={() => onToggleEnCurso(curso.id, false)} aria-label="Marcar como completado"><LoaderIcon className="text-sky-400" /></Button>
+                                : <Button variant="ghost" size="icon-sm" onClick={() => onToggleEnCurso(curso.id, true)} aria-label="Marcar como en curso"><CheckCircle2Icon className="text-emerald-400" /></Button>
+                            }
                             {curso.visible
                                 ? <Button variant="ghost" size="icon-sm" onClick={() => setToHide(curso)}><EyeIcon className="text-emerald-400" /></Button>
                                 : <Button variant="ghost" size="icon-sm" onClick={() => onShow(curso.id)}><EyeOffIcon className="text-muted-foreground" /></Button>

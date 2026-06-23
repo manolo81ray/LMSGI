@@ -1,14 +1,13 @@
-export type TipoActividad = "curso" | "proyecto" | "servicio" | "formacion" | "lenguaje"
+export type TipoActividad = "curso" | "proyecto" | "servicio" | "formacion" | "lenguaje" | "red"
 
-// Qué ocurrió con la fila: se creó, o se cambió su visibilidad en la web.
-export type AccionActividad = "creado" | "activado" | "ocultado"
+// Qué se hizo con la fila desde el panel admin.
+export type AccionActividad = "creado" | "editado" | "ocultado" | "activado" | "borrado" | "en curso" | "completado"
 
 export interface IActividadItem {
     id: number
     tipo: TipoActividad
     titulo: string
     accion: AccionActividad
-    visible: boolean
-    fecha: string | null
+    fecha: string
     href: string
 }

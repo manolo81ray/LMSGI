@@ -127,8 +127,8 @@ export const CursoDetalle = () => {
                     {/* COLUMNA PRINCIPAL */}
                     <div className="flex flex-col">
 
-                        {/* Badge "En curso" */}
-                        <BadgeEnCurso className="mb-4" />
+                        {/* Badge de estado (En curso / Completado), controlado desde el admin */}
+                        <BadgeEnCurso className="mb-4" variante={curso.en_curso ? "en-curso" : "completado"} />
 
                         {/* Título con degradado dorado */}
                         <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight bg-gradient-to-br from-[#ffe088] via-[#e9c349] to-[#9d7d00] bg-clip-text text-transparent">

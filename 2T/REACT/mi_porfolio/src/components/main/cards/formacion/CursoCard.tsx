@@ -29,8 +29,8 @@ export const CursoCard = ({ curso }: Props) => {
             // CAMBIO 1: Quitamos 'h-full' para que no se estire y reducimos un poco el padding (de p-5 a p-4 md:p-5)
             className="group flex flex-col bg-card rounded-2xl p-4 md:p-5 border border-border shadow-[0_24px_48px_rgba(0,0,0,0.12)] hover:border-primary/20 hover:-translate-y-2 transition-all duration-500"
         >
-            {/* Badge "En curso" (siempre visible en cursos) */}
-            <BadgeEnCurso className="mb-3" />
+            {/* Badge de estado (En curso / Completado), controlado desde el admin */}
+            <BadgeEnCurso className="mb-3" variante={curso.en_curso ? "en-curso" : "completado"} />
 
             {/* Contenedor de la Imagen (Margen reducido de mb-6 a mb-4) */}
             <div className="w-full rounded-xl overflow-hidden bg-background mb-4 relative border border-border">

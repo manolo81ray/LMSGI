@@ -11,7 +11,9 @@ import { FormSection } from "@/components/admin/shared/FormSection"
 import { insertCurso, updateCurso } from "@/model/api/backend/cursos/apiCursos"
 import type { ICursos } from "@/model/interfaces/formacion/ICursos"
 
-type CursoFormValues = Omit<ICursos, "id" | "etiquetas" | "fecha" | "fecha_fin"> & {
+// en_curso no se edita aquí: se controla con el botón "En curso / Completado"
+// de la tabla del panel. Las filas nuevas toman el valor por defecto de la BD.
+type CursoFormValues = Omit<ICursos, "id" | "etiquetas" | "fecha" | "fecha_fin" | "en_curso"> & {
     etiquetas: string
     fecha: string
     fecha_fin: string

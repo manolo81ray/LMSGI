@@ -10,6 +10,7 @@ export interface ICursos {
     precio:      number;
     impartido:   string;
     visible:     boolean;
+    en_curso:    boolean;
     created_at?: string;
     updated_at?: string;
 }

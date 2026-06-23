@@ -10,7 +10,7 @@ import { AdminTableShell } from "@/components/admin/shared/AdminTableShell"
 import { StatCard } from "@/components/admin/shared/StatCard"
 import { FormacionForm } from "@/components/admin/formacion/FormacionForm"
 import { FormacionTable } from "@/components/admin/formacion/FormacionTable"
-import { getFormaciones, deleteFormacion, updateFormacionVisible } from "@/model/api/backend/formacion/apiFormacion"
+import { getFormaciones, deleteFormacion, updateFormacionVisible, updateFormacionEnCurso } from "@/model/api/backend/formacion/apiFormacion"
 import type { IFormacion } from "@/model/interfaces/formacion/IFormacion"
 
 const PAGE_SIZE = 10
@@ -50,6 +50,7 @@ export const FormacionHome = () => {
 
     const handleHide = async (id: number) => { await updateFormacionVisible(id, false); fetchFormaciones() }
     const handleShow = async (id: number) => { await updateFormacionVisible(id, true); fetchFormaciones() }
+    const handleToggleEnCurso = async (id: number, enCurso: boolean) => { await updateFormacionEnCurso(id, enCurso); fetchFormaciones() }
 
     const handleNuevo = () => { setEditing(undefined); setSheetOpen(true) }
     const handleEditar = (f: IFormacion) => { setEditing(f); setSheetOpen(true) }
@@ -87,7 +88,7 @@ export const FormacionHome = () => {
                 onPrev={() => setPage((p) => p - 1)}
                 onNext={() => setPage((p) => p + 1)}
             >
-                <FormacionTable formaciones={paginated} loading={loading} onEdit={handleEditar} onDelete={setToDelete} onHide={handleHide} onShow={handleShow} />
+                <FormacionTable formaciones={paginated} loading={loading} onEdit={handleEditar} onDelete={setToDelete} onHide={handleHide} onShow={handleShow} onToggleEnCurso={handleToggleEnCurso} />
             </AdminTableShell>
 
             <AdminFormSheet

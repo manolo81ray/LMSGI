@@ -28,6 +28,7 @@ const ProyectosHome = lazy(() => import("@/pages/admin/proyectos/Home").then((m)
 const ServiciosHome = lazy(() => import("@/pages/admin/servicios/Home").then((m) => ({ default: m.ServiciosHome })));
 const FormacionHome = lazy(() => import("@/pages/admin/formacion/Home").then((m) => ({ default: m.FormacionHome })));
 const LenguajesHome = lazy(() => import("@/pages/admin/lenguajes/Home").then((m) => ({ default: m.LenguajesHome })));
+const RedesHome = lazy(() => import("@/pages/admin/redes/Home").then((m) => ({ default: m.RedesHome })));
 
 // Fallback mientras se descarga el chunk de la ruta.
 const RouteFallback = () => (
@@ -71,6 +72,7 @@ export const AppRouter = () => {
               <Route path="/admin/servicios" element={<ServiciosHome />} />
               <Route path="/admin/formacion" element={<FormacionHome />} />
               <Route path="/admin/lenguajes" element={<LenguajesHome />} />
+              <Route path="/admin/redes" element={<RedesHome />} />
             </Route>
           </Route>
         </Routes>

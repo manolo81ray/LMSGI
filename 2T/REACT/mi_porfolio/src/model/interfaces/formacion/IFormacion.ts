@@ -10,6 +10,7 @@ export interface IFormacion {
     lugar_institucion: string;
     Modalidad:         string;
     visible:           boolean;
+    en_curso:          boolean;
     created_at?:       string;
     updated_at?:       string;
 }

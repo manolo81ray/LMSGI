@@ -18,7 +18,7 @@ export const DescripcionCard = ({ descripcion }: Props) => {
             <div className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-16 items-center relative z-10">
                 
                 {/* ---------------- IZQUIERDA: Textos ---------------- */}
-                <div className="col-span-1 lg:col-span-6 flex flex-col justify-center items-center text-center md:items-start md:text-left lg:pl-16">
+                <div className="col-span-1 lg:col-span-6 flex flex-col justify-center items-center text-center lg:items-start lg:text-left lg:pl-16">
 
                     {/* Kicker */}
                     <span className="block font-sans text-[#e9c349] text-[11px] xl:text-sm font-bold tracking-[0.25em] uppercase mb-5 md:mb-8 xl:mb-10">

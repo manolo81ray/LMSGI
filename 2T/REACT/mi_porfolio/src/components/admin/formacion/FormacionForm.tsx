@@ -11,7 +11,9 @@ import { FormSection } from "@/components/admin/shared/FormSection"
 import { insertFormacion, updateFormacion } from "@/model/api/backend/formacion/apiFormacion"
 import type { IFormacion } from "@/model/interfaces/formacion/IFormacion"
 
-type FormacionFormValues = Omit<IFormacion, "id" | "fecha_inicio" | "fecha_fin"> & {
+// en_curso no se edita aquí: se controla con el botón "En curso / Completado"
+// de la tabla del panel. Las filas nuevas toman el valor por defecto de la BD.
+type FormacionFormValues = Omit<IFormacion, "id" | "fecha_inicio" | "fecha_fin" | "en_curso"> & {
     fecha_inicio: string
     fecha_fin: string
 }
@@ -48,9 +50,10 @@ export const FormacionForm = ({ className, formacion, onSaved, ...props }: Forma
 
     const enviarDatos: SubmitHandler<FormacionFormValues> = async (data) => {
         setSubmitting(true)
+        const payload = data as unknown as Omit<IFormacion, "id">
         const ok = isEditing && formacion
-            ? await updateFormacion(formacion.id, data)
-            : await insertFormacion(data)
+            ? await updateFormacion(formacion.id, payload)
+            : await insertFormacion(payload)
         setSubmitting(false)
         if (ok) {
             if (!isEditing) reset(buildDefaults())

@@ -3,81 +3,69 @@ import type { AccionActividad, IActividadItem, TipoActividad } from "@/model/int
 
 const LIMITE = 6
 
+// Metadatos de cada entidad: tabla, clave primaria, columna del título y a
+// dónde enlaza en el panel. Sirve tanto para resolver el href de la actividad
+// como para buscar el título de una fila antes de borrarla.
 interface Fuente {
     tabla: string
     pk: string
     tituloCol: string
-    tipo: TipoActividad
     href: string
 }
 
-// Cada entidad guarda su título en una columna distinta, así que mapeamos
-// la tabla -> columna de título -> tipo para poder unificarlas en una sola lista.
-const FUENTES: Fuente[] = [
-    { tabla: "cursos", pk: "id", tituloCol: "titulo", tipo: "curso", href: "/admin/cursos" },
-    { tabla: "proyectos", pk: "id", tituloCol: "titulo", tipo: "proyecto", href: "/admin/proyectos" },
-    { tabla: "servicios", pk: "id", tituloCol: "nombre", tipo: "servicio", href: "/admin/servicios" },
-    { tabla: "formacion", pk: "id", tituloCol: "nombre", tipo: "formacion", href: "/admin/formacion" },
-    { tabla: "lenguajes", pk: "id_lenguaje", tituloCol: "nombre", tipo: "lenguaje", href: "/admin/lenguajes" },
-]
-
-// `updated_at` solo se rellena al cambiar la visibilidad (ver updateXxxVisible),
-// así que si existe representa el último ocultar/activar; si no, la fila solo se creó.
-const resolverAccion = (visible: boolean, updatedAt: string | null): AccionActividad => {
-    if (!updatedAt) return "creado"
-    return visible ? "activado" : "ocultado"
+const FUENTES: Record<TipoActividad, Fuente> = {
+    curso: { tabla: "cursos", pk: "id", tituloCol: "titulo", href: "/admin/cursos" },
+    proyecto: { tabla: "proyectos", pk: "id", tituloCol: "titulo", href: "/admin/proyectos" },
+    servicio: { tabla: "servicios", pk: "id", tituloCol: "nombre", href: "/admin/servicios" },
+    formacion: { tabla: "formacion", pk: "id", tituloCol: "nombre", href: "/admin/formacion" },
+    // La columna en la BD se llama "Nombre" (mayúscula), ver apiLenguajes.
+    lenguaje: { tabla: "lenguajes", pk: "id_lenguaje", tituloCol: "Nombre", href: "/admin/lenguajes" },
+    red: { tabla: "redes_sociales", pk: "id", tituloCol: "nombre", href: "/admin/redes" },
 }
 
-// Trae los últimos movimientos de cada tabla (alta o cambio de visibilidad),
-// los combina y devuelve los más recientes en conjunto. Las filas sin fecha
-// quedan al final (nullsFirst: false).
+// Inserta una fila en el registro de actividad. No bloquea ni hace fallar la
+// operación principal: si algo va mal solo se traza por consola.
+export const registrarActividad = async (
+    tipo: TipoActividad,
+    accion: AccionActividad,
+    titulo: string,
+    entidadId?: number,
+): Promise<void> => {
+    const { error } = await supabase
+        .from("actividad")
+        .insert([{ tipo, accion, titulo: titulo || "(sin título)", entidad_id: entidadId ?? null }])
+    if (error) console.error(error)
+}
+
+// Busca el título de una fila por su id. Se usa antes de borrar (cuando ya no
+// tenemos el objeto) o al cambiar visibilidad (solo recibimos el id).
+export const tituloDe = async (tipo: TipoActividad, id: number): Promise<string> => {
+    const f = FUENTES[tipo]
+    const { data, error } = await supabase.from(f.tabla).select(f.tituloCol).eq(f.pk, id).single()
+    if (error) { console.error(error); return "(sin título)" }
+    return ((data as Record<string, unknown> | null)?.[f.tituloCol] as string) ?? "(sin título)"
+}
+
+// Devuelve los últimos movimientos registrados, ya ordenados por la BD.
 export const getActividadReciente = async (limite = LIMITE): Promise<IActividadItem[]> => {
-    const porFuente = await Promise.all(
-        FUENTES.map(async (f) => {
-            const columnas = `${f.pk}, ${f.tituloCol}, visible, created_at, updated_at`
+    const { data, error } = await supabase
+        .from("actividad")
+        .select("id, tipo, accion, titulo, fecha")
+        .order("fecha", { ascending: false })
+        .limit(limite)
 
-            // Pedimos las más recientes por alta y por cambio de visibilidad: así
-            // afloran tanto las recién creadas como las antiguas que se acaban de
-            // ocultar/activar (su created_at puede ser viejo y quedarían fuera).
-            const [porAlta, porCambio] = await Promise.all([
-                supabase.from(f.tabla).select(columnas).order("created_at", { ascending: false, nullsFirst: false }).limit(limite),
-                supabase.from(f.tabla).select(columnas).order("updated_at", { ascending: false, nullsFirst: false }).limit(limite),
-            ])
+    if (error) { console.error(error); return [] }
 
-            if (porAlta.error) console.error(porAlta.error)
-            if (porCambio.error) console.error(porCambio.error)
-
-            // Fusionamos y quitamos duplicados por clave primaria.
-            const porId = new Map<unknown, Record<string, unknown>>()
-            for (const row of [...(porAlta.data ?? []), ...(porCambio.data ?? [])]) {
-                porId.set((row as unknown as Record<string, unknown>)[f.pk], row as unknown as Record<string, unknown>)
-            }
-
-            return [...porId.values()].map((row) => {
-                const createdAt = (row.created_at as string) ?? null
-                const updatedAt = (row.updated_at as string) ?? null
-                const visible = Boolean(row.visible)
-                return {
-                    id: row[f.pk] as number,
-                    tipo: f.tipo,
-                    titulo: (row[f.tituloCol] as string) ?? "(sin título)",
-                    accion: resolverAccion(visible, updatedAt),
-                    visible,
-                    // La fecha relevante es la del último movimiento: el cambio de
-                    // visibilidad si lo hubo, o la de alta en caso contrario.
-                    fecha: updatedAt ?? createdAt,
-                    href: f.href,
-                }
-            })
-        })
-    )
-
-    return porFuente
-        .flat()
-        .sort((a, b) => {
-            const ta = a.fecha ? new Date(a.fecha).getTime() : 0
-            const tb = b.fecha ? new Date(b.fecha).getTime() : 0
-            return tb - ta
-        })
-        .slice(0, limite)
+    return (data ?? []).map((row) => {
+        const r = row as Record<string, unknown>
+        const tipo = r.tipo as TipoActividad
+        return {
+            id: r.id as number,
+            tipo,
+            titulo: (r.titulo as string) ?? "(sin título)",
+            accion: r.accion as AccionActividad,
+            fecha: r.fecha as string,
+            href: FUENTES[tipo]?.href ?? "/admin",
+        }
+    })
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { BookOpenIcon, BriefcaseIcon, GraduationCapIcon, LanguagesIcon, WrenchIcon } from "lucide-react"
+import { BookOpenIcon, BriefcaseIcon, GraduationCapIcon, LanguagesIcon, Share2Icon, WrenchIcon } from "lucide-react"
 
 import { getActividadReciente } from "@/model/api/backend/dashboard/apiActividad"
 import type { AccionActividad, IActividadItem, TipoActividad } from "@/model/interfaces/dashboard/IActividad"
@@ -11,12 +11,17 @@ const META: Record<TipoActividad, { label: string; color: string; icon: React.Re
     servicio: { label: "Servicio", color: "text-green-400", icon: <WrenchIcon className="size-5" /> },
     formacion: { label: "Formación", color: "text-amber-400", icon: <BookOpenIcon className="size-5" /> },
     lenguaje: { label: "Lenguaje", color: "text-pink-400", icon: <LanguagesIcon className="size-5" /> },
+    red: { label: "Red social", color: "text-cyan-400", icon: <Share2Icon className="size-5" /> },
 }
 
 const ACCION: Record<AccionActividad, { label: string; className: string }> = {
     creado: { label: "Añadido", className: "bg-emerald-500/15 text-emerald-300" },
+    editado: { label: "Editado", className: "bg-blue-500/15 text-blue-300" },
     activado: { label: "Activado", className: "bg-emerald-500/15 text-emerald-300" },
     ocultado: { label: "Oculto", className: "bg-amber-500/15 text-amber-300" },
+    borrado: { label: "Borrado", className: "bg-red-500/15 text-red-300" },
+    "en curso": { label: "En curso", className: "bg-sky-500/15 text-sky-300" },
+    completado: { label: "Completado", className: "bg-emerald-500/15 text-emerald-300" },
 }
 
 const rtf = new Intl.RelativeTimeFormat("es-ES", { numeric: "auto" })
@@ -50,14 +55,14 @@ export const RecentActivity = () => {
     }, [])
 
     return (
-        <section className="surface-card flex min-h-0 flex-1 flex-col gap-4 p-5">
+        <section className="surface-card flex w-full min-w-0 flex-col gap-4 p-5">
             <div>
                 <h2 className="text-label-lg font-semibold text-foreground">Actividad reciente</h2>
-                <p className="text-body-sm text-muted-foreground">Altas y cambios de visibilidad en tu portfolio.</p>
+                <p className="text-body-sm text-muted-foreground">Altas, ediciones, visibilidad y borrados en tu portfolio.</p>
             </div>
 
             {items === null ? (
-                <ul className="flex min-h-0 flex-1 flex-col divide-y divide-border overflow-y-auto">
+                <ul className="flex flex-col divide-y divide-border">
                     {Array.from({ length: 4 }).map((_, i) => (
                         <li key={i} className="flex items-center gap-3 py-3">
                             <span className="size-9 animate-pulse rounded-lg bg-muted" />
@@ -69,7 +74,7 @@ export const RecentActivity = () => {
             ) : items.length === 0 ? (
                 <p className="py-6 text-center text-body-sm text-muted-foreground">Todavía no hay actividad.</p>
             ) : (
-                <ul className="flex min-h-0 flex-1 flex-col divide-y divide-border overflow-y-auto">
+                <ul className="flex flex-col divide-y divide-border">
                     {items.map((item) => {
                         const meta = META[item.tipo]
                         const accion = ACCION[item.accion]

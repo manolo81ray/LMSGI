@@ -110,10 +110,8 @@ export const FormacionDetalle = () => {
                     <div className="grid gap-8 lg:grid-cols-[1fr_360px] items-stretch">
                         {/* Texto */}
                         <div className="max-w-4xl">
-                            {/* Badge "En curso" (solo para la titulación en curso) */}
-                            {formacion.nombre?.trim().toLowerCase().includes(TITULACION_EN_CURSO) && (
-                                <BadgeEnCurso className="mb-4" />
-                            )}
+                            {/* Badge de estado (En curso / Completado), controlado desde el admin */}
+                            <BadgeEnCurso className="mb-4" variante={formacion.en_curso ? "en-curso" : "completado"} />
 
                             <div className="flex flex-wrap items-center gap-4 mb-6">
                                 <h1 className="font-serif text-4xl md:text-6xl text-foreground leading-[1.05] tracking-tight">

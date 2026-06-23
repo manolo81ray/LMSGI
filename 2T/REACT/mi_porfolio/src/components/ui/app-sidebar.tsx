@@ -5,6 +5,7 @@ import {
     GraduationCapIcon,
     WrenchIcon,
     LanguagesIcon,
+    Share2Icon,
 } from "lucide-react"
 
 import logoMrg from "@/assets/logo_mrg.png"
@@ -25,6 +26,7 @@ const navItems = [
     { title: "Servicios", url: "/admin/servicios", icon: <WrenchIcon /> },
     { title: "Formacion", url: "/admin/formacion", icon: <BookOpenIcon /> },
     { title: "Lenguajes", url: "/admin/lenguajes", icon: <LanguagesIcon /> },
+    { title: "Redes", url: "/admin/redes", icon: <Share2Icon /> },
 ]
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

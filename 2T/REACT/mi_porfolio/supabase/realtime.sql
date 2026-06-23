@@ -41,7 +41,7 @@ declare
   t text;
   tablas text[] := array[
     'lenguajes','cursos','formacion','servicios',
-    'proyectos','descripcion','contacto'
+    'proyectos','descripcion','contacto','redes_sociales'
   ];
 begin
   foreach t in array tablas loop

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { EyeIcon, EyeOffIcon, PencilIcon, Trash2Icon, TriangleAlertIcon } from "lucide-react"
+import { CheckCircle2Icon, EyeIcon, EyeOffIcon, LoaderIcon, PencilIcon, Trash2Icon, TriangleAlertIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 import {
@@ -19,12 +19,13 @@ interface FormacionTableProps {
     onDelete: (formacion: IFormacion) => void
     onHide: (id: number) => void
     onShow: (id: number) => void
+    onToggleEnCurso: (id: number, enCurso: boolean) => void
 }
 
 const formatFecha = (fecha: string | Date) =>
     new Date(fecha).toLocaleDateString("es-ES", { year: "numeric", month: "short" })
 
-export const FormacionTable = ({ formaciones, loading, onEdit, onDelete, onHide, onShow }: FormacionTableProps) => {
+export const FormacionTable = ({ formaciones, loading, onEdit, onDelete, onHide, onShow, onToggleEnCurso }: FormacionTableProps) => {
     const [toHide, setToHide] = useState<IFormacion | undefined>(undefined)
 
     if (loading) return <LoadingDatos texto="Cargando formaciones..." fullScreen={false} />
@@ -59,6 +60,10 @@ export const FormacionTable = ({ formaciones, loading, onEdit, onDelete, onHide,
                                 </TableCell>
                                 <TableCell className="py-3 text-right">
                                     <div className="flex items-center justify-end gap-3">
+                                        {f.en_curso
+                                            ? <Button variant="ghost" size="icon-sm" onClick={() => onToggleEnCurso(f.id, false)} aria-label="Marcar como completado"><LoaderIcon className="text-sky-400" /></Button>
+                                            : <Button variant="ghost" size="icon-sm" onClick={() => onToggleEnCurso(f.id, true)} aria-label="Marcar como en curso"><CheckCircle2Icon className="text-emerald-400" /></Button>
+                                        }
                                         {f.visible
                                             ? <Button variant="ghost" size="icon-sm" onClick={() => setToHide(f)} aria-label="Ocultar en web"><EyeIcon className="text-emerald-400" /></Button>
                                             : <Button variant="ghost" size="icon-sm" onClick={() => onShow(f.id)} aria-label="Mostrar en web"><EyeOffIcon className="text-muted-foreground" /></Button>
@@ -85,6 +90,10 @@ export const FormacionTable = ({ formaciones, loading, onEdit, onDelete, onHide,
                         </div>
                         <p className="text-sm text-muted-foreground">{formatFecha(f.fecha_inicio)} — {formatFecha(f.fecha_fin)}</p>
                         <div className="mt-1 flex items-center gap-3 border-t border-border pt-3">
+                            {f.en_curso
+                                ? <Button variant="ghost" size="icon-sm" onClick={() => onToggleEnCurso(f.id, false)} aria-label="Marcar como completado"><LoaderIcon className="text-sky-400" /></Button>
+                                : <Button variant="ghost" size="icon-sm" onClick={() => onToggleEnCurso(f.id, true)} aria-label="Marcar como en curso"><CheckCircle2Icon className="text-emerald-400" /></Button>
+                            }
                             {f.visible
                                 ? <Button variant="ghost" size="icon-sm" onClick={() => setToHide(f)}><EyeIcon className="text-emerald-400" /></Button>
                                 : <Button variant="ghost" size="icon-sm" onClick={() => onShow(f.id)}><EyeOffIcon className="text-muted-foreground" /></Button>

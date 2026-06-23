@@ -6,13 +6,7 @@ interface Props {
     formacion: IFormacion;
 }
 
-// Titulación que debe mostrar el badge "En curso"
-const TITULACION_EN_CURSO = "administración de sistemas informáticos de red";
-
 export const FormacionCard = ({ formacion }: Props) => {
-
-    const mostrarEnCurso =
-        formacion.nombre?.trim().toLowerCase().includes(TITULACION_EN_CURSO) ?? false;
 
     const formatearFecha = (fechaIso: string) => {
         if (!fechaIso) return "Presente";
@@ -30,8 +24,8 @@ export const FormacionCard = ({ formacion }: Props) => {
             // CAMBIO 1: Hemos quitado la clase 'h-full' del final
             className="group flex flex-col bg-card rounded-md p-6 md:p-8 xl:p-11 border border-border shadow-[0_24px_48px_rgba(0,0,0,0.12)] hover:border-primary/20 transition-all duration-500 hover:-translate-y-1"
         >
-            {/* Badge "En curso" (solo para la titulación en curso) */}
-            {mostrarEnCurso && <BadgeEnCurso size="lg" className="mb-4" />}
+            {/* Badge de estado (En curso / Completado), controlado desde el admin */}
+            <BadgeEnCurso size="lg" className="mb-4" variante={formacion.en_curso ? "en-curso" : "completado"} />
 
             {/* Cabecera */}
             <div className="flex justify-end items-center mb-4">

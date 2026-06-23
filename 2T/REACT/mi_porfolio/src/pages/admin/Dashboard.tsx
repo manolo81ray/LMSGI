@@ -56,7 +56,7 @@ export const Dashboard = () => {
     ]
 
     return (
-        <div className="flex min-h-0 flex-1 flex-col gap-8">
+        <div className="flex flex-col gap-8">
             <div>
                 <h1 className="text-display-sm text-foreground">Bienvenido al panel</h1>
                 <p className="text-body-md text-muted-foreground">Resumen de contenido en tu portfolio.</p>

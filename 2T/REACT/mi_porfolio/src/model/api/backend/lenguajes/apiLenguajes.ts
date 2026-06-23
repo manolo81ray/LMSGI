@@ -1,5 +1,6 @@
 import type { ILenguajes } from "@/model/interfaces/home/ILenguajes"
 import { supabase } from "@/model/utils/supabase"
+import { registrarActividad, tituloDe } from "@/model/api/backend/dashboard/apiActividad"
 
 export const getLenguajes = async (): Promise<ILenguajes[]> => {
     const { data, error } = await supabase
@@ -21,23 +22,28 @@ const toRow = ({ nombre, ...rest }: Omit<ILenguajes, "id_lenguaje">) => ({ ...re
 export const insertLenguaje = async (lenguaje: Omit<ILenguajes, "id_lenguaje">): Promise<boolean> => {
     const { error } = await supabase.from("lenguajes").insert([toRow(lenguaje)]).select()
     if (error) { console.error(error); return false }
+    await registrarActividad("lenguaje", "creado", lenguaje.nombre ?? "")
     return true
 }
 
 export const updateLenguaje = async (id_lenguaje: number, lenguaje: Omit<ILenguajes, "id_lenguaje">): Promise<boolean> => {
     const { error } = await supabase.from("lenguajes").update(toRow(lenguaje)).eq("id_lenguaje", id_lenguaje).select()
     if (error) { console.error(error); return false }
+    await registrarActividad("lenguaje", "editado", lenguaje.nombre ?? "", id_lenguaje)
     return true
 }
 
 export const deleteLenguaje = async (id_lenguaje: number): Promise<boolean> => {
+    const titulo = await tituloDe("lenguaje", id_lenguaje)
     const { error } = await supabase.from("lenguajes").delete().eq("id_lenguaje", id_lenguaje)
     if (error) { console.error(error); return false }
+    await registrarActividad("lenguaje", "borrado", titulo, id_lenguaje)
     return true
 }
 
 export const updateLenguajeVisible = async (id_lenguaje: number, visible: boolean): Promise<boolean> => {
     const { error } = await supabase.from("lenguajes").update({ visible, updated_at: new Date().toISOString() }).eq("id_lenguaje", id_lenguaje)
     if (error) { console.error(error); return false }
+    await registrarActividad("lenguaje", visible ? "activado" : "ocultado", await tituloDe("lenguaje", id_lenguaje), id_lenguaje)
     return true
 }

@@ -5,57 +5,16 @@ interface Props {
 }
 
 export const ContactoCard = ({ contacto }: Props) => {
-    const esRedesSociales = contacto.nombre === 'Redes Sociales';
+    // Las redes sociales ahora viven en su propia tabla (ver RedesCard); aquí
+    // solo se conserva el bloque de Ubicación.
     // Zona "Mi ubicación" oculta: se mantiene el código pero no se renderiza
     const esUbicacion = false && contacto.nombre === 'Ubicación';
-
-    const svgs = Array.isArray(contacto.tecnologias) ? contacto.tecnologias : [];
 
     const urls = Array.isArray(contacto.URL) ? contacto.URL : [];
     const url = urls[0] || '';
 
-    const svgStyles = "w-10 h-10 md:w-12 md:h-12 xl:w-16 xl:h-16 fill-foreground stroke-foreground group-hover:fill-primary group-hover:stroke-primary transition-all duration-300";
-    const networkNames = ["YouTube", "LinkedIn", "Instagram", "Gmail"];
-
     return (
         <>
-            {/* contenedor Redes Sociales */}
-            {esRedesSociales && (
-                <section className="col-span-full w-full bg-background py-16 xl:py-24 px-6 lg:px-24 xl:px-32 font-sans">
-                    <div className="max-w-6xl xl:max-w-screen-2xl mx-auto">
-                        <span className="block text-primary text-xs xl:text-base font-semibold tracking-[0.14em] uppercase mb-3">
-                            Encuéntrame en mis
-                        </span>
-                        <h2 className="font-serif text-4xl md:text-5xl xl:text-6xl font-bold text-foreground mb-12 xl:mb-16 tracking-tight">
-                            {contacto.nombre}
-                        </h2>
-
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 xl:gap-8">
-                            {svgs.map((codigoSvg, index) => {
-                                const enlaceDestino = urls[index] || '#';
-                                const nombreRed = networkNames[index] || "Conectar";
-                                const svgConClases = codigoSvg.replace('<svg ', `<svg class="${svgStyles}" `);
-
-                                return (
-                                    <a
-                                        key={index}
-                                        href={enlaceDestino}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="group flex flex-col items-center justify-center gap-6 xl:gap-8 bg-card/50 backdrop-blur-md rounded-2xl p-8 xl:p-12 border border-primary/10 shadow-lg hover:bg-card/80 hover:border-primary/40 hover:-translate-y-2 transition-all duration-300"
-                                    >
-                                        <div dangerouslySetInnerHTML={{ __html: svgConClases }} />
-                                        <span className="text-muted-foreground text-sm xl:text-lg font-medium tracking-wide group-hover:text-primary transition-colors duration-300 uppercase">
-                                            {nombreRed}
-                                        </span>
-                                    </a>
-                                )
-                            })}
-                        </div>
-                    </div>
-                </section>
-            )}
-
             {/* contenedor Ubicacion */}
             {esUbicacion && (
                 <section id="ubicacion" className="col-span-full w-full bg-background font-sans py-6 px-6 lg:px-24 xl:px-32 scroll-mt-24">
