@@ -3,6 +3,7 @@ import type { IServicios } from '@/model/interfaces/servicios/IServicios'
 import { getServicios } from '@/model/api/frontend/servicios/apiServicios'
 import { ServiciosCard } from '@/components/main/cards/servicios/ServiciosCard'
 import { LoadingDatos } from '@/components/shared/LoadingDatos'
+import { useRealtime } from '@/hooks/useRealtime'
 
 export const Servicios = () => {
 
@@ -18,6 +19,9 @@ export const Servicios = () => {
     useEffect(() => {
         fetchServicios()
     }, [])
+
+    // Refresca en vivo cuando se edita un servicio desde el panel admin
+    useRealtime('servicios', fetchServicios)
 
     if (loading) return <LoadingDatos />
 

@@ -6,6 +6,7 @@ import { getCursos } from '@/model/api/frontend/formacion/apiCursos'
 import {FormacionesCard} from '@/components/main/cards/formacion/FormacionesCard'
 import {CursosCard} from '@/components/main/cards/formacion/CursosCard'
 import { LoadingDatos } from '@/components/shared/LoadingDatos'
+import { useRealtime } from '@/hooks/useRealtime'
 
 export const Formacion = () => {
 
@@ -26,6 +27,12 @@ export const Formacion = () => {
     useEffect(() => {
         Promise.all([fetchFormaciones(), fetchCursos()]).finally(() => setLoading(false))
     }, [])
+
+    // Refresca en vivo cuando se edita formación o cursos desde el admin
+    useRealtime(['formacion', 'cursos'], () => {
+        fetchFormaciones()
+        fetchCursos()
+    })
 
     if (loading) return <LoadingDatos />
 

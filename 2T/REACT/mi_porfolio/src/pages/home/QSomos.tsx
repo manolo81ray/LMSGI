@@ -6,6 +6,7 @@ import { getLenguajes } from '@/model/api/frontend/home/apiLenguajes'
 import { DescripcionesCard } from '@/components/main/cards/home/DescripcionesCard'
 import { LenguajesCard } from '@/components/main/cards/home/LenguajesCard'
 import { LoadingDatos } from '@/components/shared/LoadingDatos'
+import { useRealtime } from '@/hooks/useRealtime'
 
 export const QSomos = () => {
 
@@ -26,6 +27,12 @@ export const QSomos = () => {
     useEffect(() => {
         Promise.all([fetchDescripcion(), fetchLenguajes()]).finally(() => setLoading(false))
     }, [])
+
+    // Refresca en vivo cuando se edita la descripción o los lenguajes desde el admin
+    useRealtime(['descripcion', 'lenguajes'], () => {
+        fetchDescripcion()
+        fetchLenguajes()
+    })
 
     if (loading) return <LoadingDatos />
 

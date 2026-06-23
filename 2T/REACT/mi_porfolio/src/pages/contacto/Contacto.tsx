@@ -7,6 +7,7 @@ import type { IContacto } from '@/model/interfaces/contacto/IContacto';
 import {Intro} from '@/components/main/estilos/contacto/Intro'
 import TContacto from '@/components/main/estilos/contacto/TContacto'
 import { LoadingDatos } from '@/components/shared/LoadingDatos'
+import { useRealtime } from '@/hooks/useRealtime'
 
 export const Contacto = () => {
     // El hook "useState"  es una variable de estado, la que permite manejar los datos de la pagina.
@@ -39,6 +40,9 @@ export const Contacto = () => {
     useEffect(() => {
         fetchContactos()
     }, [])
+
+    // Refresca en vivo cuando se editan los contactos desde el panel admin
+    useRealtime('contacto', fetchContactos)
 
     // Cuando ya hay datos cargados y la URL trae un hash, hacemos scroll a esa sección
     useEffect(() => {
