@@ -1,0 +1,43 @@
+# Análisis de seguridad con CodeQL (GitHub Code Scanning)
+# Detecta vulnerabilidades comunes (inyección, XSS, etc.) en JS/TS.
+# Docs: https://docs.github.com/code-security/code-scanning
+name: "CodeQL"
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+  schedule:
+    # Análisis semanal (lunes 06:00 UTC) aunque no haya cambios
+    - cron: "0 6 * * 1"
+
+jobs:
+  analyze:
+    name: Analizar (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+      actions: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["javascript-typescript"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inicializar CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          # Consultas de seguridad + calidad (más cobertura que el set por defecto)
+          queries: security-and-quality
+
+      - name: Analizar
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
