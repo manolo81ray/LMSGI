@@ -1,0 +1,28 @@
+# Dependabot — avisa y abre PRs cuando hay parches de seguridad/versiones
+# Docs: https://docs.github.com/code-security/dependabot
+version: 2
+updates:
+  # Dependencias npm del porfolio (la app vive en un subdirectorio del repo)
+  - package-ecosystem: "npm"
+    directory: "/2T/REACT/mi_porfolio"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    # Agrupa las actualizaciones menores/parche en un solo PR para no saturar
+    groups:
+      dependencias-menores:
+        update-types:
+          - "minor"
+          - "patch"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore(deps)"
+
+  # Mantiene al día las propias GitHub Actions (si añades workflows)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
